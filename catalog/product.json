@@ -1,0 +1,537 @@
+[
+  {
+    "id": "qstack-office-hours",
+    "category": "product",
+    "description": "Frame a startup or builder idea and hand off a design grounded in the user's situation.",
+    "sources": [
+      {
+        "path": "gstack/office-hours/SKILL.md",
+        "line": 359,
+        "take": "Stage-aware startup discovery, builder brainstorming, premise checks, and a design handoff"
+      }
+    ],
+    "steps": [
+      "Read the project brief, existing product, and prior design decisions. Choose startup discovery for a venture or internal initiative and builder discovery for a hobby, research, or open-source project.",
+      "For startup discovery, ask only unresolved questions appropriate to the stage. Probe demand shown by behavior, the current workaround and its cost, a specific user and consequence, the smallest viable offering, surprising observations, and how the need may change. For an internal project, identify the demo and proof a sponsor would need.",
+      "For builder discovery, find the most interesting experience to prototype, who would use or share it, the nearest existing project, and the quickest useful first version. Carry concrete build steps forward.",
+      "Challenge the premise against the cost of doing nothing and the code already in place. Compare two or three approaches that differ in scope or mechanism, with likely value, effort, and the assumptions each depends on.",
+      "Write a design brief with evidence, target user or use case, constraints, choices considered, recommendation, and the open questions that could change it."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-plan-ceo-review",
+    "category": "product",
+    "description": "Review an existing plan for product direction, scope, and the value of what it proposes.",
+    "sources": [
+      {
+        "path": "gstack/plan-ceo-review/SKILL.md",
+        "line": 747,
+        "take": "Explicit scope mode, current-to-ideal comparison, and a record of accepted and deferred choices"
+      }
+    ],
+    "steps": [
+      "Pin the plan or diff under review. Restate the user problem and the cost of leaving it unsolved. Map the proposal to reusable parts of the existing product and a concrete longer-term ideal.",
+      "Honor the user's scope mode. When it is open, use the plan and available evidence to recommend expansion, selective expansion, hold, or reduction. Distinguish a recommendation from an adopted scope change.",
+      "In expansion, look for much larger user value and small adjacent improvements. In selective expansion, consider each addition separately. In hold, improve completeness within the current boundary. In reduction, identify the smallest deliverable that still solves the problem.",
+      "Walk the plan through foundation, implementation, integration, deployment, and the first weeks after launch. Identify choices with user impact and failures that would invalidate the plan.",
+      "Record the vision, accepted scope, deferred items, and remaining blockers in the reviewed plan. Keep unapproved options visible for the next decision."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-plan-design-review",
+    "category": "design",
+    "description": "Review a proposed design before implementation and resolve the gaps that would affect users.",
+    "sources": [
+      {
+        "path": "gstack/plan-design-review/SKILL.md",
+        "line": 776,
+        "take": "Per-dimension scoring, resolution, and re-rating against explicit design criteria"
+      }
+    ],
+    "steps": [
+      "Read the selected plan, design tokens, prior decisions, and current product. Identify the key screens, user journeys, and the states the proposal needs to describe.",
+      "Rate information hierarchy, typography, spacing, visual direction, interaction and feedback, responsive behavior, and accessibility on a 0-to-10 scale. Explain the observable difference between the current proposal and a high-scoring version.",
+      "For each unresolved material gap, present the affected screen or interaction and plausible designs. Use a sketch or side-by-side mockup when it makes the decision clearer. Preserve settled design decisions where the evidence still supports them.",
+      "Update the agreed plan and affected tokens together. Re-rate changed dimensions and record each unresolved issue as a decision or an implementation risk."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-plan-devex-review",
+    "category": "product",
+    "description": "Review the developer experience proposed in a plan before implementation.",
+    "sources": [
+      {
+        "path": "gstack/plan-devex-review/SKILL.md",
+        "line": 717,
+        "take": "First-time developer journey, touchpoint evidence, time to first success, and DX review modes"
+      }
+    ],
+    "steps": [
+      "Identify the developer persona and the task that demonstrates the product's value. Inspect the relevant docs, CLI help, SDK examples, and proposed changes. Note any journey steps still hypothetical.",
+      "Trace discovery, install, first success, real use, debugging, and upgrade as a first-time developer. Count steps and estimate or measure time to first success with stated conditions.",
+      "Choose the requested depth among expansion, polish, and triage. Score usability, credibility, findability, access, value, desirability, and usefulness from cited touchpoints. Mark any unsupported dimension as unmeasured.",
+      "Look for recovery instructions, machine-readable error signals, and a concrete first success. Rank evidenced friction by its effect on adoption and record pre-implementation scores so the live audit can compare them."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-design-consultation",
+    "category": "design",
+    "description": "Create a visual design system with a reference preview and implementation guidance.",
+    "sources": [
+      {
+        "path": "gstack/design-consultation/SKILL.md",
+        "line": 374,
+        "take": "Product intake, coherent token proposal, visual preview, and DESIGN.md handoff"
+      }
+    ],
+    "steps": [
+      "Read the product brief and any existing tokens. Describe the audience, the first impression they should remember, and the interactions the system needs to support.",
+      "When research is in scope, inspect comparable products and identify useful conventions and room for a distinctive direction. Verify fonts and their licenses using available local or authoritative evidence.",
+      "Propose a coherent design system covering roles for color and type, spacing, layout, components, states, and motion. Demonstrate contrast, responsive behavior, and the system's application to a representative screen.",
+      "Capture feedback on a rendered preview or approved mockup. Save the decisions, token sources, accessibility guidance, and examples in DESIGN.md. Label unverified assets or font choices as pending."
+    ],
+    "requirements": [
+      "Use a browser or another renderer for a live preview. Use an image or design tool when mockup generation is requested."
+    ]
+  },
+  {
+    "id": "qstack-design-html",
+    "category": "design",
+    "description": "Build production-quality HTML or a framework component from an approved design.",
+    "sources": [
+      {
+        "path": "gstack/design-html/SKILL.md",
+        "line": 322,
+        "take": "Content-aware Pretext routing, framework-native delivery, and verification at multiple viewport sizes"
+      }
+    ],
+    "steps": [
+      "Load the approved mockup, design specification, and tokens where available. Identify the content structure and states that the implementation must reproduce.",
+      "Use the project's existing framework when delivering into an app. Choose the Pretext layout operation according to the content: resize-aware blocks, self-sizing cards, tightly fitted bubbles, or editorial line layout. Use the project layout primitive where it provides the same behavior.",
+      "Build semantic markup with reusable design tokens, keyboard controls, accessible names, and explicit loading, empty, and error states as needed. Preserve the approved visual hierarchy.",
+      "Render the result at narrow and wide widths. Check real text wraps, long content, tab order, focus, and visual fidelity. Run available lint and page checks and correct material findings.",
+      "Deliver the HTML or component with verification screenshots and any extracted tokens that should be shared."
+    ],
+    "requirements": [
+      "Use a browser to verify the rendered page. Pretext is needed for the layout operations that use it."
+    ]
+  },
+  {
+    "id": "qstack-design-motion",
+    "category": "design",
+    "description": "Animate an approved design for an accessible web page or a seamless showcase loop.",
+    "sources": [
+      {
+        "path": "gstack/design-motion/SKILL.md",
+        "line": 124,
+        "take": "Approved-frame fidelity, restrained website motion, and deterministic showcase capture"
+      }
+    ],
+    "steps": [
+      "Identify whether the deliverable is website motion or a showcase. Anchor the work to the approved frame, the visual story, and the requested size and format.",
+      "Rebuild and compare the static frame before animation. For a website, animate the section where motion explains something and verify that reduced motion and disabled scripts leave content visible.",
+      "For a showcase, use a controllable clock and explicit state reset. Keep the approved composition at rest and capture the candidate loop at a fixed frame rate.",
+      "Check that a frame repeats at the loop boundary, that the reset reaches the initial empty beat, that the rest frame matches the still, and that motion stays within the intended bounds. Inspect a contact sheet before final encoding.",
+      "Export the requested artifacts. The showcase defaults are an H.264 MP4, a loop GIF, and an 800 by 500 GIF. Record dimensions, duration, frame rate, and any approved departure from the still."
+    ],
+    "requirements": [
+      "Use a browser or timeline renderer for deterministic frames and a video encoder for MP4 or GIF deliverables."
+    ]
+  },
+  {
+    "id": "qstack-design-review",
+    "category": "design",
+    "description": "Audit the implemented design in a running product and verify any authorized repairs.",
+    "sources": [
+      {
+        "path": "gstack/design-review/SKILL.md",
+        "line": 746,
+        "take": "Live interaction and consistency audit, scored baseline, before-and-after repairs, and regression report"
+      }
+    ],
+    "steps": [
+      "Open the target build and record the baseline, key journeys, breakpoints, and comparison screenshots. Use an existing design review baseline when one matches the target and conditions.",
+      "Follow real user flows across screens and states. Inspect hierarchy, typography, color, spacing, layout, accessibility, interaction feedback, and cross-page consistency. Capture reproducible examples of each material finding.",
+      "Rank findings by user impact. Report the overall design grade and the separate grade for generic or formulaic presentation. Store category grades and stable finding IDs for future comparisons.",
+      "When repairs are in scope, make each fix at the source, capture the same viewport and interaction afterward, and rerun the affected flow. Track new console errors and leave deferred work visible.",
+      "Deliver the final design report with scope, baseline, fixes, remaining findings, and before-and-after evidence."
+    ],
+    "requirements": [
+      "Use a browser that can inspect layout and capture screenshots of the tested build."
+    ]
+  },
+  {
+    "id": "qstack-design-shotgun",
+    "category": "design",
+    "description": "Explore several visually distinct directions and record the approved design variant.",
+    "sources": [
+      {
+        "path": "gstack/design-shotgun/SKILL.md",
+        "line": 367,
+        "take": "Distinct concepts, side-by-side comparison rounds, and a durable approval artifact"
+      }
+    ],
+    "steps": [
+      "Read the brief, approved constraints, existing design system, and any user preferences. Capture the current screen once if the request is to evolve it.",
+      "Describe several directions with different visual concepts or layout archetypes. Keep the content, task, and comparison viewport stable across candidates so feedback identifies the design decision.",
+      "Generate one representative design per direction with an available design, image, or HTML tool. Present a lettered comparison board with the actual renders.",
+      "Ask for specific feedback about what to retain or change, then iterate on the directions the user wants to explore. Keep each round's candidates and feedback associated with that round.",
+      "Write an approval artifact for the exact accepted variant. Include its image or preview path, any chosen archetype and section order, and the instructions that carry into implementation."
+    ],
+    "requirements": [
+      "Use a design, image generation, or HTML preview tool capable of producing comparable variants."
+    ]
+  },
+  {
+    "id": "qstack-devex-review",
+    "category": "product",
+    "description": "Exercise a live developer journey and compare observed friction with its plan.",
+    "sources": [
+      {
+        "path": "gstack/devex-review/SKILL.md",
+        "line": 639,
+        "take": "Evidence-based live DX scorecard and plan-to-reality comparison"
+      }
+    ],
+    "steps": [
+      "Identify the live target, the developer persona, and a comparable plan or previous baseline. Start from an appropriate clean environment and record prerequisites.",
+      "Follow the documented path through discovery, installation, first success, ordinary use, debugging, and upgrade. Test the CLI, SDK, or API that the persona actually uses and measure time to first useful result.",
+      "Trigger supported error cases. Record the message, exit or response code, recovery path, context, and whether a caller can act on the result without exposing secrets.",
+      "Audit docs, tooling, migration and deprecation guidance, and ecosystem touchpoints. Score each dimension against actual commands, logs, or screenshots and keep inaccessible paths marked untested.",
+      "Compare results with the plan's scores and assumptions. Report the biggest adoption blockers and link the smallest reproducible evidence for each."
+    ],
+    "requirements": [
+      "Use the project's supported developer environment and browser, CLI, or API tooling for the selected journey."
+    ]
+  },
+  {
+    "id": "qstack-diagram",
+    "category": "documentation",
+    "description": "Turn a description or Mermaid diagram into source, an editable drawing, and rendered assets.",
+    "sources": [
+      {
+        "path": "gstack/diagram/SKILL.md",
+        "line": 155,
+        "take": "Mermaid source, editable Excalidraw artifact, and SVG and PNG renders"
+      }
+    ],
+    "steps": [
+      "Choose a flowchart for relationships and a sequence diagram for interaction order. Use named entities, directional edges, and labels that communicate the user's requested relationships.",
+      "Save the Mermaid source. Verify the source renders and convert supported shapes and text to editable Excalidraw elements. Record any diagram type that must use an embedded image for fidelity.",
+      "Render SVG and PNG from the same source or scene. Open the rendered output and check legibility, clipping, and correspondence with the original request.",
+      "Deliver the Mermaid, Excalidraw, SVG, and PNG paths. Use the source or editable drawing for subsequent changes."
+    ],
+    "requirements": [
+      "Use a Mermaid renderer and an Excalidraw-compatible converter."
+    ]
+  },
+  {
+    "id": "qstack-document-generate",
+    "category": "documentation",
+    "description": "Write or revise technical documents and verify them against repository facts.",
+    "sources": [
+      {
+        "path": "gstack/document-generate/SKILL.md",
+        "line": 441,
+        "take": "Code-grounded knowledge map, distinct documentation modes, cross-links, and accuracy gates"
+      },
+      {
+        "path": "pstack/pstack/skills/technical-writing/SKILL.md",
+        "line": 30,
+        "take": "Diátaxis modes and sentence-level guidance for technical writing, PR descriptions, and commits"
+      }
+    ],
+    "steps": [
+      "Read the repository entry points, public interfaces, commands, configuration, tests, and existing docs. Map the requested topics to source evidence and list the material gaps.",
+      "Choose the reader and purpose. Use a tutorial for learning by doing, a how-to for completing a task, reference for lookup, or explanation for understanding. Split mixed pages and cross-link them.",
+      "Write instructions as direct commands with concrete prerequisites and expected results. Use consistent names and unambiguous conditions. For a PR description or commit, state the behavior change and give evidence a reviewer can use.",
+      "Verify examples, flags, signatures, links, and discoverability from the project index. Keep unverified behavior labeled and publish or commit only when that action is within scope."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-document-release",
+    "category": "documentation",
+    "description": "Audit release documentation against the exact changes that will ship.",
+    "sources": [
+      {
+        "path": "gstack/document-release/SKILL.md",
+        "line": 247,
+        "take": "Release diff coverage map by documentation purpose and discovered debt"
+      }
+    ],
+    "steps": [
+      "Resolve the release base and candidate revision. Include selected working changes when the release workflow owns them. Inventory additions, renames, removals, and behavior changes in public APIs, flags, configuration, and user workflows.",
+      "Map each public change to its reference, guide, tutorial, and explanation coverage. Trace obsolete names in diagrams and cross-links to their current implementation.",
+      "Read the affected documents in full. Correct existing claims, commands, examples, changelog text, and diagrams while preserving unrelated entries. Record substantial missing pages as separate work.",
+      "Check cross-document consistency and release readiness. Report reviewed and changed documents, coverage gaps, remaining debt, and any version decision the release owner needs."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-deslop-shared-libs",
+    "category": "design",
+    "description": "Audit recent work for shared-code opportunities with proven callers and net savings.",
+    "sources": [
+      {
+        "path": "gstack/deslop-shared-libs/SKILL.md",
+        "line": 151,
+        "take": "Two real callers, contract compatibility, cost accounting, and a read-only ranked report"
+      }
+    ],
+    "steps": [
+      "Pin the reviewed revision or overlay. Inspect recent first-party changes and work already in progress. Exclude generated and vendor copies when counting potential callers.",
+      "Require at least two verified caller locations. Compare contracts, errors, side effects, dependencies, and deployment boundaries. Check existing libraries before proposing another shared helper.",
+      "For each viable idea, name the helper, destination, callers, migration order, compatibility tests, and shared failure path. Estimate removed and added lines for implementation and total change separately, including tests and integration.",
+      "Recheck source at the recorded revision and rank ideas by reliability gain, net savings, and adoption risk. Return a short, read-only report with source links and the ideas already covered by active work."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-qa",
+    "category": "qa",
+    "description": "Test a real browser, API, CLI, or background workflow and optionally repair reproduced defects.",
+    "sources": [
+      {
+        "path": "gstack/qa/SKILL.md",
+        "mode": "Use repair mode. Reproduce first, then repair only the user-authorized problems and verify the same path.",
+        "line": 340,
+        "take": "Baseline and triage, cause-focused fixes, regression evidence, and final re-test"
+      },
+      {
+        "path": "gstack/qa-only/SKILL.md",
+        "mode": "Use report mode. Keep the checkout read-only and deliver findings with reproducible evidence.",
+        "line": 188,
+        "take": "Report-only surface selection, isolation, and evidence-preserving artifact workflow"
+      }
+    ],
+    "steps": [
+      "Choose report or repair mode from the request. Identify the browser, API, CLI, job, worker, or webhook under test. Record current build, environment, safe test data, and the relevant contract.",
+      "Select project-native checks and isolated instances where needed. Write a test charter with each entry point, expected result, practical limit, and evidence to collect. Preserve prior baselines when verifying a regression.",
+      "Exercise the real user path and retain the smallest reproducible steps with actual and expected results. Include screenshots, responses, logs, commands, and relevant timings that support each claim. Distinguish product findings from environment failures.",
+      "In report mode, rank findings and save a report with stable evidence links. In repair mode, reproduce each chosen defect, use a focused failing regression where practical, make the smallest related fix, and repeat the same check.",
+      "Run a final pass on repaired and critical paths. Record fixed, remaining, deferred, and untested items with a traceable baseline. Preserve evidence after cleaning up the test instances."
+    ],
+    "requirements": [
+      "Use the project's supported test tools or a browser for the selected surface. Use authorized test data for state-changing paths."
+    ]
+  },
+  {
+    "id": "qstack-test-audit",
+    "category": "qa",
+    "description": "Find low-value tests, preserve independently useful coverage, and apply approved retirement batches.",
+    "sources": [
+      {
+        "path": "gstack/test-audit/SKILL.md",
+        "line": 197,
+        "take": "Evidence cards and owner-aware batches for tests or test-only code that may be retired"
+      }
+    ],
+    "steps": [
+      "Set the scope, revision, and discovery budget. Use mechanical signals such as near duplicates, source-text assertions, no assertions, or export-list tests to identify candidates.",
+      "Read each full test, its production owner, callers, overlapping coverage, and history. Retain a test when it uniquely guards a contract. Record suppressed candidates and their stated reasons.",
+      "For each proposed retirement or rewrite, record the behavior, stronger proof, references searched, test-only code that could be removed, and exact validation commands. Group candidates by the owning boundary.",
+      "Report retire, rewrite, extend, or retain decisions and estimated production and test line changes separately. Apply only an in-scope batch with complete evidence.",
+      "Before removing production code, prove it is unreachable from the package entry point and run an appropriate build, typecheck, or dead-code check with it gone. Rerun owner and sibling tests and check the diff."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-spec",
+    "category": "product",
+    "description": "Create a backlog-ready issue or epic grounded in current code and observable acceptance criteria.",
+    "sources": [
+      {
+        "path": "gstack/spec/SKILL.md",
+        "line": 224,
+        "take": "Why, scope, code interrogation, draft review, evidence gate, filing, and optional implementation handoff"
+      }
+    ],
+    "steps": [
+      "Establish the stakeholder problem, desired outcome, target repository, scope, and exclusions before drafting. Search for duplicates where filing or splitting work is in scope.",
+      "Read the actual code paths and record current behavior, source locations, API or schema details, and what should stay as it is. Use an inventory and ranked changes for an audit issue.",
+      "Draft the proposed change, dependencies and sequence, testable acceptance criteria, testing plan, and rollback. For an epic, map child issues and their dependency order.",
+      "Review the draft against source evidence. Remove secrets and internal content outside the intended audience before any external review, archival sync, or filing. Record review results and follow-up choices.",
+      "Deliver the finished draft or file the authorized issue, then archive its exact approved text and reference locally. Start implementation only when the user requested it."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-plan-tune",
+    "category": "product",
+    "description": "Review or change consented preferences about when an agent asks for planning decisions.",
+    "sources": [
+      {
+        "path": "gstack/plan-tune/SKILL.md",
+        "line": 104,
+        "take": "Optional question tuning, declared and inferred profile review, and manual distillation"
+      }
+    ],
+    "steps": [
+      "Interpret what the user wants to inspect or change and check the project's consent state before collecting or examining decision history.",
+      "Show declared preferences, inferred signals, and gaps between them. Include relevant question history and samples of automatic decisions so the user can inspect the rationale.",
+      "For edits, identify the exact question or decision type and update its preference. Preserve distinctions between always ask, decide when enough context exists, and a default recommendation.",
+      "When asked to distill history, propose specific changes with evidence from recent decisions. Keep them as proposals until adopted and distinguish explicit preferences from inferred patterns."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-make-pdf",
+    "category": "documentation",
+    "description": "Render Markdown as a checked PDF or a related publication artifact.",
+    "sources": [
+      {
+        "path": "gstack/make-pdf/SKILL.md",
+        "line": 190,
+        "take": "Publication and draft modes, offline diagrams, image fitting, strict validation, and export options"
+      }
+    ],
+    "steps": [
+      "Read the Markdown, links, diagrams, and assets relative to the source. Decide whether the target is a memo, draft, or publication and apply the requested branding and page structure.",
+      "Use a renderer that respects code and headings, fits images to the content box, and supports page numbers and navigation. Render Mermaid or Excalidraw blocks with the available converter and make any parse error visible.",
+      "In strict mode, validate assets and fail for missing or unsupported files, remote references, or out-of-tree paths according to the chosen policy. A preview may identify failed assets without calling the result complete.",
+      "Render and inspect representative pages and every troublesome break. Deliver the PDF with stable links and include HTML or an editable document when requested and supported."
+    ],
+    "requirements": [
+      "Use a document renderer that supports the requested output format and the required diagram converters."
+    ]
+  },
+  {
+    "id": "qstack-write-skill",
+    "category": "documentation",
+    "description": "Create, revise, or trim an agent skill with evidence that its instructions improve real use.",
+    "sources": [
+      {
+        "path": "gstack/write-skill/SKILL.md",
+        "line": 125,
+        "take": "Tool-first edit ladder, instruction-level budgets, drift checks, and baseline comparisons"
+      }
+    ],
+    "steps": [
+      "Find the target skill and its consumers. Capture current size and behavior for representative tasks before editing. Identify the exact failure or missing capability.",
+      "Fix a tool or validation layer when it can enforce the behavior naturally. Add or change prose for judgment, routing, and context the execution environment cannot derive.",
+      "Put each instruction at the lowest level that reaches the agent on time. Keep the discovery description narrow, the main workflow short, and detailed material in references selected by the task.",
+      "For a major trim, inventory commands and dependencies and run representative before, after, and no-skill cases. Check that retained examples and tool references still work.",
+      "Record what changed, the size difference, and evidence of improvement or a dated measurement plan."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-unslop",
+    "category": "documentation",
+    "description": "Edit prose for clear meaning, concrete evidence, and a natural voice.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/unslop/SKILL.md",
+        "line": 11,
+        "take": "Pattern-based prose editing across technical documents, explanations, and briefings"
+      }
+    ],
+    "steps": [
+      "Read the text and intended audience. Preserve verified claims, names, qualifiers, and the author's purpose.",
+      "Cut ornamental framing, unsupported praise, empty conclusions, generic jargon, and repetition. Replace vague descriptions with the mechanism or evidence they refer to.",
+      "Use active verbs, direct sentence structure, and consistent terminology. Unpack dense clauses, vary rhythm so it reads naturally, and preserve formatting that helps the reader act.",
+      "Review the revised text line by line for any weakened claim, ambiguity, or added assumption. Return the edited copy in the requested format."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-sharpen",
+    "category": "product",
+    "description": "Rewrite a task brief with a deeper method and clearer evidence of completion.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/sharpen/SKILL.md",
+        "line": 7,
+        "take": "Expert method, primary evidence, and independent proof in a rewritten prompt"
+      }
+    ],
+    "steps": [
+      "Identify what an expert would do within the existing project's scope that the brief misses.",
+      "Name the most direct evidence, concrete methods, tools, and independent signal that would establish a correct result.",
+      "Split choices a prototype or experiment can settle from preference and strategy decisions that belong to the user.",
+      "Return a rewritten prompt with the same outcome, a stronger method, and observable completion criteria."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-tdd",
+    "category": "qa",
+    "description": "Fix a bug with a focused regression that fails for the right reason before the repair.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/tdd/SKILL.md",
+        "line": 13,
+        "take": "Smallest practical failing-before test, targeted fix, and passing-after evidence"
+      }
+    ],
+    "steps": [
+      "Identify the intended observable behavior, the defect, and the cheapest practical user or caller entry point that reproduces it.",
+      "Add the smallest focused regression using the project's existing test setup. Run it before editing production code and confirm its failure matches the defect.",
+      "Make the smallest production change that restores the contract. Rerun the regression and nearby relevant tests without weakening expected behavior.",
+      "When a durable failing test is impractical, use the nearest reproducible runtime check and report the before and after evidence and its limits."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-create-verification-skill",
+    "category": "qa",
+    "description": "Author a project-local skill that drives the real app and preserves verification evidence.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/create-verification-skill/SKILL.md",
+        "line": 23,
+        "take": "Portable launch, diagnosis, driving, evidence, feature map, and cleanup contract"
+      }
+    ],
+    "steps": [
+      "Inspect the real product surfaces and supported local entry points. Establish launch prerequisites, how to verify readiness, safe test data, and the isolation available.",
+      "Write a project-local skill with exact launch and read-only diagnosis steps, stable driving handles for the available tool, observable success signals, artifact locations, and cleanup instructions.",
+      "Add a feature map of high-value user journeys. For each, describe how the user reaches it, how to drive it, what outcome and side effects to observe, and where it can fail.",
+      "Run one mapped journey end to end from launch through cleanup. Confirm the captured actions and outcomes survive cleanup and record any setup differences from the real target."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-experience-first",
+    "category": "design",
+    "description": "Resolve product or implementation tradeoffs around the experience of the people using the result.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/principle-experience-first/SKILL.md",
+        "line": 7,
+        "take": "User experience as the decision criterion for scope, interactions, APIs, and maintenance"
+      }
+    ],
+    "steps": [
+      "Identify the people who consume the work and the few tasks that matter most to them. Include developers and future maintainers when they use the interface.",
+      "Explain the user effect of each candidate. Prefer the smaller coherent experience when extra controls or features would make the core task worse.",
+      "Use a lightweight prototype when it can settle a consequential choice. Observe alignment, transitions, feedback, and error states on the core path.",
+      "Record the chosen tradeoff using the outcome the affected people will notice."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-test-behavior",
+    "category": "qa",
+    "description": "Design or evaluate a test against the observable contract it is meant to protect.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/principle-test-behavior-not-implementation/SKILL.md",
+        "line": 7,
+        "take": "The behavior-break and implementation-refactor checks for durable tests"
+      }
+    ],
+    "steps": [
+      "Name the observer and its entry point, then state the exact return value, error, readable state, or externally observable side effect the contract promises.",
+      "Choose a concrete input and derive the expectation from the requirement. Drive the interface the observer uses and assert the promised result at that boundary.",
+      "Check that the test would fail if the behavior broke and pass if internals changed while the same contract held. Replace assertions that trace a private implementation detail.",
+      "For interactions with an external collaborator, verify the observable request or effect. Include a positive case when it is needed to show the observer can detect an otherwise forbidden interaction."
+    ],
+    "requirements": []
+  }
+]

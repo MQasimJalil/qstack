@@ -1,0 +1,34 @@
+{
+  "name": "@qstack-workflow/qstack",
+  "version": "0.2.1",
+  "description": "Agent-neutral gstack and pstack skill suite with an executable TLC-to-Bombadil pilot",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MQasimJalil/qstack.git"
+  },
+  "homepage": "https://github.com/MQasimJalil/qstack#readme",
+  "bugs": {
+    "url": "https://github.com/MQasimJalil/qstack/issues"
+  },
+  "bin": {
+    "qstack": "bin/qstack.cjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "bin",
+    "catalog/index.json",
+    "docs",
+    "skills",
+    "pilot/preview.py",
+    "pilot/browser.ts",
+    "pilot/style.css",
+    "pilot/*.tla",
+    "pilot/*.cfg",
+    "qstack.py",
+    "qstack_workflow.py",
+    "README.md"
+  ]
+}

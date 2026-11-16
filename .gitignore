@@ -1,0 +1,8 @@
+.qstack-tools/
+qstack-runs/
+__pycache__/
+/graphify-out/
+/gstack/
+/pstack/
+/tlaplus/
+/bombadil/

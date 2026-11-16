@@ -1,0 +1,13 @@
+{
+  "editions": [
+    {"path": "gstack/capy/skill/gstack/SKILL.md", "line": 8, "target": "qstack-health", "take": "Provider-specific bootstrap and readiness checks route to the portable diagnostics workflow."},
+    {"path": "gstack/qm/sandbox/skills/gstack-plan/SKILL.md", "line": 7, "target": "qstack-plan", "take": "Generated QM edition of the engineering plan review."},
+    {"path": "gstack/openclaw/skills/gstack-openclaw-ceo-review/SKILL.md", "line": 6, "target": "qstack-plan-ceo-review", "take": "OpenClaw edition of founder scope and strategy review."},
+    {"path": "gstack/openclaw/skills/gstack-openclaw-office-hours/SKILL.md", "line": 6, "target": "qstack-office-hours", "take": "OpenClaw edition of product discovery."},
+    {"path": "gstack/openclaw/skills/gstack-openclaw-retro/SKILL.md", "line": 6, "target": "qstack-retro", "take": "OpenClaw edition of the engineering retrospective."}
+  ],
+  "fixtures": [
+    {"path": "gstack/test/fixtures/context-bill/tree-a/alpha/SKILL.md", "line": 1, "take": "Synthetic input for the context-billing test."},
+    {"path": "gstack/test/fixtures/context-bill/tree-a/beta/SKILL.md", "line": 1, "take": "Synthetic input for the context-billing test."}
+  ]
+}

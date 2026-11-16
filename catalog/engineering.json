@@ -1,0 +1,712 @@
+[
+  {
+    "id": "qstack-arena",
+    "category": "orchestration",
+    "description": "Compare several independent attempts at the same task and synthesize their strongest parts into one verified artifact.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/arena/SKILL.md",
+        "line": 11,
+        "take": "Common brief, isolated candidates, criterion-by-criterion judging, base selection, selective grafts, and final verification."
+      }
+    ],
+    "steps": [
+      "Define the artifact and a private rubric of three to six observable criteria. Give every candidate the same brief, shared evidence, and a separate output directory or worktree.",
+      "Run candidates independently through authorized host delegation when available. In a host without delegation, compare distinct alternatives serially and record that independent judgment was unavailable.",
+      "Read every viable candidate. Score it against the rubric and capture what its rationale considered. Use a separate read-only judge from an available different model family when useful.",
+      "Choose the easiest sound base to maintain. Integrate only improvements that fit its design. Keep the consensus shape when candidates agree, or tighten an ambiguous brief when they diverge without a defensible winner.",
+      "Verify the final artifact directly and record the rubric, selected base, useful grafts, rejected alternatives, and any missing candidate or independent judge."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-attack-the-premise",
+    "category": "principles",
+    "description": "Test a shared assumption when multiple fixes failed the same gate.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/principle-attack-the-premise/SKILL.md",
+        "line": 13,
+        "take": "Falsify the common premise before another repair and use the evidence to select the next cause."
+      }
+    ],
+    "steps": [
+      "Write the single assertion every failed fix relied on.",
+      "Build a rerunnable observation that would produce different evidence if that assertion were false. Compare how failures are distributed as well as whether the gate is red.",
+      "Use the result to select the next repair. If the evidence contradicts the assertion, trace the mechanism it misses. If it supports the assertion, test the next upstream cause."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-blast-radius",
+    "category": "engineering",
+    "description": "Trace what a change might break beyond its diff and prove the fact on which its safety depends.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/blast-radius/SKILL.md",
+        "line": 31,
+        "take": "Trace behavior outside the diff and prove the dominant safety assumption against the real code."
+      }
+    ],
+    "steps": [
+      "Trace the change from the diff into callers, persisted data, external contracts, dependency versions, and lifecycle timing. Cite the source path that makes each effect reachable.",
+      "Pick the one or two facts that must be true for the change to be safe. Localize the observable difference between a world where each fact holds and one where it fails.",
+      "Run the narrowest executable check against the real implementation or running app. Record the actual result and distinguish verified facts, source-backed deductions, and open assumptions.",
+      "Report confirmed risks with their reproduction and impact. Report the highest-risk cases you cleared and give a rerunnable check for any fact the release depends on."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-boundary-discipline",
+    "category": "principles",
+    "description": "Concentrate validation, narrowing, and error handling at a true system boundary.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/principle-boundary-discipline/SKILL.md",
+        "line": 13,
+        "take": "Decode external representations into trusted domain types and keep framework wiring thin."
+      }
+    ],
+    "steps": [
+      "Find where input crosses into the system. Decode and validate it there, returning a useful boundary error when it fails.",
+      "Pass validated domain values into internal logic. Keep framework, transport, storage, and wire representations behind the boundary.",
+      "Keep business decisions in testable pure functions where practical. Remove repeat validation that can only see already-validated internal values."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-build-a-lever",
+    "category": "principles",
+    "description": "Build a deterministic tool for nontrivial edits, analysis, generation, or verification.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/principle-build-the-lever/SKILL.md",
+        "line": 14,
+        "take": "Prove a small rerunnable tool against one manual unit and reuse it across the work."
+      }
+    ],
+    "steps": [
+      "Do one representative unit manually to learn the actual transformation or evidence contract.",
+      "Build the smallest rerunnable script, codemod, generator, or query that can perform or verify the work. Compare the first automated result to the manual baseline.",
+      "Run the tool across the remaining scope and retain its output or contract so another person can reproduce the result. Keep it with the work when it needs to outlive the session."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-catch-up",
+    "category": "communication",
+    "description": "Catch the user up on changes since their last message and present the decisions that still need them, in text or a subtitled video.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/ketchup/SKILL.md",
+        "mode": "Produce a written catch-up and decision handoff from verified evidence.",
+        "line": 13,
+        "take": "Read-only account of meaningful changes and decisions still waiting for the user."
+      },
+      {
+        "path": "pstack/pstack/skills/ketchup-video/SKILL.md",
+        "mode": "Produce the subtitled catch-up video and the written decision handoff. Report any missing render capability.",
+        "line": 11,
+        "take": "Silent subtitled visual walkthrough built from verified evidence, with the same decision handoff."
+      }
+    ],
+    "steps": [
+      "Use the user’s last message as the start, and gather verified changes, relevant current run or PR states, and still-open decisions. Stay read-only apart from producing requested media.",
+      "Keep the text catch-up short. Use a compact visual for a connected change when it helps, and mark completed, running, failed, or unchecked outcomes using the real evidence.",
+      "For each decision only the user can make, state the call, available options or your recommendation, evidence, and downside. Include any required action and link that enables it.",
+      "For requested video, storyboard only meaningful changes from available captures, diagrams, or verified data. Render a silent landscape video with legible burned-in subtitles and enough time to read each slide.",
+      "Inspect a frame from each slide at the intended viewing size and check subtitle duration. Deliver the video with the same decision list and report any render limitation."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-configure-agents",
+    "category": "orchestration",
+    "description": "Map installed agent models and reasoning effort to workflow roles without assuming provider-specific defaults.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/setup-pstack/SKILL.md",
+        "line": 28,
+        "take": "Detect available models, preserve user overrides, scale role budgets, and validate before writing host settings."
+      }
+    ],
+    "steps": [
+      "Find the model choices and effort levels the selected host exposes. Read existing project or user preferences when the user authorized that scope.",
+      "Map roles for implementation, harder reasoning, independent candidates and judging, swarm workers, and reflection. Scale effort to the chosen budget, preserving explicit family, list, and inherit choices.",
+      "Validate every explicit model against the detected capabilities. If selection is unavailable, use the current agent or the host’s supported default and explain the fallback.",
+      "Write the configuration only to the host and scope the user requested. Show the effective mapping, when it takes effect, and any unsupported role that will run serially."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-design-a-workflow",
+    "category": "orchestration",
+    "description": "Design and execute an auditable playbook for substantial work that has no narrower workflow.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/figure-it-out/SKILL.md",
+        "line": 15,
+        "take": "Falsifiable done criteria, risk-adjusted gates, hypothesis loop, and an audit trail."
+      }
+    ],
+    "steps": [
+      "Ground a falsifiable done predicate in the real product. Estimate work and blockers, then size the evidence gates to reversibility, blast radius, and unknowns.",
+      "Sequence independently verifiable units. Resolve the riskiest unknown early, capture a pre-change baseline, and build the scaffold or verification harness that later phases need.",
+      "For every unit, record the hypothesis, smallest change, actual gate output, and keep-or-discard decision. Run the gate before advancing. Delegate only separable work with independent write targets.",
+      "Record decisions and links as each unit lands. Check the final product against the original predicate and state whether it is verified, failed, or inconclusive.",
+      "Expose decisions only the user can make. Show the chosen workflow, tradeoffs, decision trail, final evidence, and remaining work."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-design-alternatives",
+    "category": "principles",
+    "description": "Compare two or three competing prototypes when an unfamiliar interaction or architectural decision depends on observed behavior.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/principle-exhaust-the-design-space/SKILL.md",
+        "line": 3,
+        "take": "Prototype several distinct shapes and compare them before committing to a novel interaction or architecture."
+      }
+    ],
+    "steps": [
+      "Name the decision and what observation would settle it. Pick two or three alternatives with a material difference in interaction, ownership, or architecture.",
+      "Build small comparable prototypes with shared data and constraints. Use one visual switcher for an interaction when it makes comparison easier.",
+      "Drive the same realistic scenarios in each prototype and record the decisive difference. Choose a shape from the evidence and keep the throwaway comparison separate from the implementation."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-design-rationale",
+    "category": "engineering",
+    "description": "Explain why a behavior or design decision was made from the historical record.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/why/SKILL.md",
+        "line": 9,
+        "take": "Read original and follow-up commits or review discussions and label inferences and gaps."
+      }
+    ],
+    "steps": [
+      "Locate when the relevant choice entered the project, then read the introduction and subsequent changes in commits, reviews, issues, or design records.",
+      "Trace the reason the authors gave, the tradeoffs they considered, and any later change to the decision. Link to the original evidence.",
+      "State what the record establishes and mark any inference as such. Identify the question the available record leaves unanswered."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-engineering-mode",
+    "category": "orchestration",
+    "description": "Coordinate rigorous engineering work using the narrowest matching playbook, with evidence and scope proportional to the task.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/poteto-mode/SKILL.md",
+        "line": 121,
+        "take": "One coordinator routes 23 playbooks with explicit triggers, verification checkpoints, and bounded autonomy."
+      }
+    ],
+    "steps": [
+      "Restate the outcome, name its done predicate, and choose one primary playbook. Record the state shape and smallest change when implementing. Track scope, verification, delegation, and unresolved bottlenecks. Route work beyond one session to a bespoke workflow or program as appropriate.",
+      "Route investigation to source flow or history according to the question. For a bug fix, reproduce on the matching surface, isolate the first wrong decision, repair it, and replay. For a feature, trace the subsystem, model its data, select design alternatives when warranted, build, review, and exercise the user path. For a refactor, freeze the behavior contract and prove equivalence after subtraction and reshaping.",
+      "Route a one-off performance problem through baseline capture, grounding, one measured fix, and remeasurement. For sustained optimization, define the metric, freeze a sensitivity-checked harness, and log one baseline and result for each hypothesis. For live forensics, capture at the affected surface and isolate the mechanism. For a supplied trace, parse its format and symbols, query it, and report the supported diagnosis. Keep diagnosis read-only unless a fix is requested.",
+      "Use a disposable prototype to decide a concrete interaction or empirical fork. For visual parity, pin the baseline captures and prove each intended state with the actual image-diff harness. For skill authoring, validate metadata, links, and a representative invocation. For evaluation, blind equivalent candidates, freeze a scoring rubric, and compare real outcomes. Reuse the corresponding installed skill where a route already supplies these checks.",
+      "Route PR babysitting to one merge frontier and its exact head, with read-only status or authorized repair chosen up front. For shipping, independently verify each PR, then land the authorized contiguous run bottom-up. For a multi-phase plan, return an auditable checklist with one acceptance gate per slice. Open or update a PR only when requested, with intent, exact evidence, and outstanding limits. For workspace cleanup, audit verified usage and recoverability before any authorized deletion.",
+      "Use autonomous mode for one task with a checkable exit condition, or program orchestration for independent work across many tasks. For autopilot, give each PR a single write owner and verify its reviewed head once. Merge only in an authorized full queue. In stack mode stop at verified handoff, stacking only real dependencies. For session pickup read the prior trail and resume its next unverified action. For an explicit pause, stop at a safe boundary and leave a durable resume note. Reuse confirmed evidence and report only verified outcomes."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-execute-a-migration",
+    "category": "principles",
+    "description": "Keep a planned rewrite or migration converging on the verified target architecture.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/principle-outcome-oriented-execution/SKILL.md",
+        "line": 9,
+        "take": "Converge on a clear end state with explicit verification boundaries and scoped intermediate breakage."
+      }
+    ],
+    "steps": [
+      "Name the target state and final static and runtime checks before editing. Identify intermediate steps that need to be usable and define any planned reversible breakage.",
+      "Choose phase boundaries that either verify a meaningful part of the target or retain a clear rollback point. Run high-signal checks for touched areas within each phase.",
+      "Remove temporary bridges when their phase ends. Verify the whole target through its normal entry points and report any remaining compatibility obligation explicitly."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-explain-code",
+    "category": "engineering",
+    "description": "Explain how a subsystem works, how a request flows through it, or where a change belongs.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/how/SKILL.md",
+        "line": 13,
+        "take": "Read-only architectural exploration that provides a working mental model."
+      }
+    ],
+    "steps": [
+      "State the scope you inferred from the question. Find the relevant entry point, data owner, layers, and callers in the repository.",
+      "Follow one representative request or state transition through the actual code. Show where inputs cross boundaries and where observable effects are produced.",
+      "Explain the responsibilities and navigation landmarks with source links. For a placement question, use the current ownership and data flow to justify the recommended layer."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-fix-root-causes",
+    "category": "principles",
+    "description": "Find the earliest code decision that produces a defect and verify the fix on the original surface.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/principle-fix-root-causes/SKILL.md",
+        "line": 13,
+        "take": "Reproduce, trace legitimate versus impossible state, instrument uncertainty, and fix all in-scope instances."
+      }
+    ],
+    "steps": [
+      "Reproduce the symptom and inspect actual state at each preceding step. Add focused instrumentation when the first wrong decision is unclear.",
+      "Decide whether the triggering state is valid. For a valid state, fix the consumer that mishandles it. For an invalid state, fix the producer or the invariant it violates.",
+      "Use the same diagnosis to find other in-scope instances. Replay the original reproduction on the same surface and retain the deciding observation for review."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-foundation-first",
+    "category": "principles",
+    "description": "Choose types, data structures, and prerequisite scaffolding before downstream implementation.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/principle-foundational-thinking/SKILL.md",
+        "line": 11,
+        "take": "Data-shape-first design, explicit access patterns, isolation, and prerequisite scaffolding."
+      }
+    ],
+    "steps": [
+      "Define the core data shape and trace dominant read and write patterns before introducing logic. Group shared decisions into a coherent abstraction.",
+      "Identify mutable objects that concurrent actors would otherwise share and isolate their ownership where practical.",
+      "Remove dead scaffolding, then land the test harness, checks, and shared types that every later phase needs. Keep each increment small and directly verifiable."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-help",
+    "category": "communication",
+    "description": "Help a user discover qstack skills, configure them, choose the right workflow, or recover a stalled run.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/poteto-help/SKILL.md",
+        "line": 62,
+        "take": "Intent-to-skill lookup, model setup, playbook choice, and troubleshooting grounded in real checkpoints."
+      }
+    ],
+    "steps": [
+      "Identify whether the user wants installation, model setup, a skill recommendation, or diagnosis of an existing run. Read the installed catalog and host instructions for the current package before naming commands.",
+      "Recommend the narrowest skill that produces the requested result. Give its trigger, deliverable, and exact invocation supported by the host. Give the full-workflow command when the user wants to exercise the bundled pilot.",
+      "For a stalled or unreliable run, recover the latest verified checkpoint, outstanding decision, and actual artifact. Show how to resume its existing check or route the next action without reopening finished work.",
+      "Keep guidance read-only until the user requests a setup or execution action. State any host capability or tool installation that the chosen workflow genuinely needs."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-isolate-shared-state",
+    "category": "principles",
+    "description": "Resolve competing writers by isolating state before adding structural serialization.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/principle-separate-before-serializing-shared-state/SKILL.md",
+        "line": 13,
+        "take": "Separate independent writes and enforce real shared ownership structurally."
+      }
+    ],
+    "steps": [
+      "Inventory each mutable file, branch, key, or object and the writers that can reach it at the same time.",
+      "Give independent facts a designated writer and separate output location. Combine them at the read or reporting boundary.",
+      "For an invariant that requires one canonical writable object, use a single writer, atomic compare-and-swap, a lock, or a genuinely sequential phase. Exercise overlapping operations to prove the mechanism."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-maintain-formal-verification",
+    "category": "engineering",
+    "description": "Update a model, proof, or formal verification skill after the covered code changes.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/maintain-formal-verification-skill/SKILL.md",
+        "line": 26,
+        "take": "Reconcile each named formal check from its sync commit, distinguish drift from bugs, and reprove failure sensitivity."
+      }
+    ],
+    "steps": [
+      "Inventory each property, bounds, assumptions, covered code, last sync revision, and exact command. Run the existing check once as a baseline.",
+      "Read changes to covered state and transitions from the sync revision, including moves and new writers. Classify each change as irrelevant, model drift, an intentional contract change, or a possible bug.",
+      "Update only the verification to reflect the observed code. Change a property only with evidence the promise changed. Keep or explain the bound.",
+      "Rerun. Replay a failure step by step against the implementation. For a passing update, inject an isolated break within scope to show sensitivity, then remove it.",
+      "Record each outcome, verified code revision, evidence, bounds, and remaining gaps. Keep a blocked check's previous sync revision and separate product fixes from verification maintenance."
+    ],
+    "requirements": [
+      "The target must have a formal verification workflow or named check. A locally available verifier or reproducible runner is needed for execution."
+    ]
+  },
+  {
+    "id": "qstack-maintain-runtime-verification",
+    "category": "engineering",
+    "description": "Reconcile a project verification skill, feature map, and live driving harness with the current app.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/maintain-verification-skill/SKILL.md",
+        "line": 23,
+        "take": "Keep index and feature recipes in sync, exercise every mapped feature on a real instance, and classify drift."
+      }
+    ],
+    "steps": [
+      "Locate the existing verification skill and map. Reconcile its index against feature files, then read each feature’s source entry point and current recipe. Collect missing user surfaces only when you can point to a real source path.",
+      "Launch the documented app and run its readiness check. Drive every mapped feature through the public surface, using a single coordinator for shared state and fresh isolated instances when the harness calls for them.",
+      "Capture the reached feature, action, result, and evidence before teardown. Repeat the readiness check after unexpected behavior, then reset, relaunch, or document the specific unreachable prerequisite.",
+      "Fix only map, harness, or verification skill drift. Re-drive every changed recipe. Report genuine product regressions separately and preserve evidence while cleaning up.",
+      "Summarize clean, changed, or blocked coverage. Keep proven verification corrections together and prepare a PR only if the user requested one."
+    ],
+    "requirements": [
+      "An existing launchable app and verification skill with a feature map are required for this maintenance workflow."
+    ]
+  },
+  {
+    "id": "qstack-make-operations-idempotent",
+    "category": "principles",
+    "description": "Design commands and state changes to converge after retries, restarts, or interrupted runs.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/principle-make-operations-idempotent/SKILL.md",
+        "line": 13,
+        "take": "Derive actions from observed state and test convergence after every interruption boundary."
+      }
+    ],
+    "steps": [
+      "Describe the target state and the evidence that proves it. On each run read the current state, compare it to the target, and apply only the remaining difference.",
+      "Make unfinished artifacts recognizable after interruption. Use a verifiable marker or atomic publication when the next run must distinguish completed work from a partial write.",
+      "Check a normal run, an immediate repeat, and restarts after each meaningful interruption point. Add reconciliation where any run fails to converge."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-manage-context",
+    "category": "principles",
+    "description": "Keep a large investigation or multi-phase agent task inside a usable context window.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/principle-guard-the-context-window/SKILL.md",
+        "line": 9,
+        "take": "Cap phase scope and preserve compact evidence instead of carrying bulky raw payloads."
+      }
+    ],
+    "steps": [
+      "Set limits for files, output volume, and scope per phase before a broad read. Read indexes first and retrieve only the passages needed for the current decision.",
+      "Use an authorized delegate for a genuinely independent bulk read when available. Otherwise process bounded slices serially and reduce them as you go.",
+      "Keep the source link, observation, and decision in a short handoff. Retrieve raw traces or large artifacts again only when the next check requires them."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-migrate-internal-api",
+    "category": "principles",
+    "description": "Move all internal consumers to a replacement API and remove the old interface in the same coordinated change.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md",
+        "line": 11,
+        "take": "Coordinated internal migration with new-contract tests and explicit compatibility preconditions."
+      }
+    ],
+    "steps": [
+      "Confirm the old interface is internal and the affected consumers can migrate together. Inventory callers and tests that pin the old behavior.",
+      "Move every consumer to the new contract and adjust its behavior checks. Remove obsolete implementation-only tests and delete the old entry point once its callers are gone.",
+      "Search for stale callers and run checks through the new public entry points. Preserve the compatibility contract if external users still depend on the prior API."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-minimize-reader-load",
+    "category": "principles",
+    "description": "Make maintenance easier by reducing the layers and mutable state a reader must trace.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/principle-minimize-reader-load/SKILL.md",
+        "line": 9,
+        "take": "Measure layers to trace and hidden state separately, then test how quickly a maintainer can trace ownership."
+      }
+    ],
+    "steps": [
+      "Pick a real maintenance question. Count the layers needed to trace the answer and list hidden or mutable values the reader must remember.",
+      "Collapse pass-through wrappers and prefer boundaries that hide meaningful decisions. Shrink state toward local values, derive instead of synchronizing, and name invariants at the boundary.",
+      "Check the revised path by tracing where the value originates and every way it can change. Keep an abstraction only when it lowers total reader load."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-model-the-domain",
+    "category": "principles",
+    "description": "Represent stateful behavior in a domain structure that enforces shared invariants.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/principle-model-the-domain/SKILL.md",
+        "line": 11,
+        "take": "Choose a state machine, union, registry, reducer, or matching collection to replace scattered branches."
+      }
+    ],
+    "steps": [
+      "Identify legal states, transitions, and invariants before editing conditionals. Trace how callers read and change the data.",
+      "Choose a representation that naturally encodes those rules, such as a state machine, discriminated union, registry, or reducer. Group code by the facts it owns.",
+      "Remove now-redundant branches and checks. Prove the resulting state transitions at the boundary and keep simple code where the representation adds no value."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-plain-language",
+    "category": "communication",
+    "description": "Restate the last response in concise everyday language when the user asks for a simpler explanation.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/bro/SKILL.md",
+        "line": 7,
+        "take": "Plain-language restatement of the assistant’s previous message."
+      }
+    ],
+    "steps": [
+      "Read the immediately preceding answer and identify its essential claim and any limitation that changes what the user should infer.",
+      "Rewrite it in short everyday sentences. Expand an essential technical term the first time it appears or replace it with its concrete effect.",
+      "Keep the original evidence and uncertainty intact. Stop when the same meaning is clear."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-prevent-recurring-mistakes",
+    "category": "engineering",
+    "description": "Find repeated repository mistakes and prevent them at the highest level the codebase can enforce.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/correct/SKILL.md",
+        "line": 13,
+        "take": "Identify mistake classes from history and prove the selected enforcement catches a prior mistake."
+      },
+      {
+        "path": "pstack/pstack/skills/principle-encode-lessons-in-structure/SKILL.md",
+        "line": 7,
+        "take": "Turn repeated guidance into an enforced invariant and reserve prose for decisions requiring judgment."
+      }
+    ],
+    "steps": [
+      "Gather examples from corrections, review comments, reverts, tests, commits, or instructions. Group repeated symptoms by the same root mistake and distinguish actual recurrence from a one-off.",
+      "Choose the highest effective enforcement. Remove the wrong path through architecture first, then use types, a targeted lint or CI check with a fix message, or observable-behavior tests.",
+      "Prove the guard rejects a real past mistake and passes a correct case. Prefer one focused change per class and make the check usable locally as well as in CI where applicable.",
+      "Keep a short map of durable rules and their enforcers. Delete redundant guidance after structural prevention. For judgment that cannot be encoded, keep a concrete example.",
+      "For an explicitly requested single correction, apply the same ladder using that correction as the specimen. Preserve scope and report a broader historical audit only when you ran one."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-proceed-within-scope",
+    "category": "principles",
+    "description": "Keep reversible work moving while preserving user decisions and required approvals.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/principle-never-block-on-the-human/SKILL.md",
+        "line": 9,
+        "take": "Proceed on ordinary reversible work and preserve decisions that genuinely belong to the user."
+      }
+    ],
+    "steps": [
+      "Distinguish a factual uncertainty you can observe from a product choice or genuine approval. Run the smallest safe check for factual uncertainty.",
+      "Proceed with a reasonable, reversible decision inside the user’s request. Record a material assumption and verify the result so the user can correct it from evidence.",
+      "Keep working on independent authorized steps when a decision is genuinely needed. Respect named checkpoints and required authorization for external or irreversible actions."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-redesign-for-a-new-requirement",
+    "category": "principles",
+    "description": "Integrate a new requirement by reconsidering the existing design and its invariants.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/principle-redesign-from-first-principles/SKILL.md",
+        "line": 11,
+        "take": "Re-derive the design with the new requirement in mind, then propagate the result coherently."
+      }
+    ],
+    "steps": [
+      "Read affected files, examples, and decisions. List the old assumptions and the new requirement that changes them.",
+      "Sketch the shape you would choose if the requirement were present from the beginning. Reuse useful existing boundaries and change the ones that would force special-case coordination.",
+      "Apply the redesign incrementally across types, callers, docs, and examples. Verify the original obligations that remain and the new observable behavior."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-reflect-on-work",
+    "category": "engineering",
+    "description": "Review the active task transcript for durable improvements and route confirmed lessons into the right skills or enforceable checks.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/reflect/SKILL.md",
+        "line": 13,
+        "take": "Use judgment, tooling, and divergent lenses, then triage durable changes by evidence and destination."
+      }
+    ],
+    "steps": [
+      "Use only the active transcript or a compact digest of it. Gather concrete repeated failures, corrections, and successful methods with evidence from this task.",
+      "Review the material through judgment, tooling, and divergent lenses. Use separate reviewers where authorized and available or take distinct sequential passes.",
+      "Validate claims, merge duplicates, and group findings into accepted changes, rejected ideas with reasons, and follow-up work. Prefer a check or other enforcement for a lesson that can be made mechanical.",
+      "Show each proposed skill destination and change. Apply changes within the user's authorized scope, validate touched skills and links, and report what was applied or remains open."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-restate-intent",
+    "category": "communication",
+    "description": "Restate the user’s intended outcome and underlying problem when they ask to confirm your understanding.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/in-your-own-words/SKILL.md",
+        "line": 7,
+        "take": "Restate the user’s goal and what they are trying to solve."
+      }
+    ],
+    "steps": [
+      "Read the request and its clarifications. Identify the intended outcome, underlying problem, constraints, and open choices.",
+      "Restate the goal and problem in your own words. Make each explicit assumption visible and distinguish it from a user requirement.",
+      "Keep the response focused on your understanding. If a material fork remains, state the two readings plainly."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-review-comments",
+    "category": "engineering",
+    "description": "Audit comments and suppressions in a scoped change, removing noise and fixing the code that needs explanatory workarounds.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/no-comments/SKILL.md",
+        "line": 13,
+        "take": "Independent comment review, acceptance rules, narrow root-cause fixes, and verifiable constraints."
+      }
+    ],
+    "steps": [
+      "Read the caller’s scope or current diff. Use a fresh reviewer when available or conduct a separate review pass focused solely on comments and suppressions.",
+      "Keep proof-worthy external constraints and explain their evidence. Flag comments that explain avoidable surprises, obsolete behavior, or correctness and safety suppressions. Verify ambiguous constraints against code or change history.",
+      "Remove accepted noise. Fix the smallest in-scope cause that makes a workaround necessary. When a constraint is real, encode it in a type, test, lint rule, or runtime check if authorized.",
+      "Validate any code change on its normal path. Report deletions, retained constraints and their evidence, implemented enforcements, and open items."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-sequence-verifiable-units",
+    "category": "principles",
+    "description": "Arrange a sweep, migration, or delivery into independently verifiable units.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/principle-sequence-verifiable-units/SKILL.md",
+        "line": 13,
+        "take": "Use known-good brackets and order delivery so a reviewer can replay the evidence."
+      }
+    ],
+    "steps": [
+      "Choose a known baseline and split work into units with one meaningful change and an exact verification command for each.",
+      "Run each gate before advancing. Repair or isolate a failing unit before building on it and retain the before-and-after result.",
+      "Order authorized commits or PRs so the evidence reads naturally, such as failure, then fix, or baseline, then treatment. Ensure the final sequence proves the intended outcome."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-simplify-change",
+    "category": "principles",
+    "description": "Reduce a refactor or addition to the smallest change that meets a proven requirement.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/principle-laziness-protocol/SKILL.md",
+        "line": 9,
+        "take": "Concentrate one decision at one source and minimize the diff."
+      },
+      {
+        "path": "pstack/pstack/skills/principle-subtract-before-you-add/SKILL.md",
+        "line": 13,
+        "take": "Delete dead code, speculative guards, and empty references before construction."
+      }
+    ],
+    "steps": [
+      "Name the required behavior and identify the observed callers. Locate decisions that are repeated or controls no caller uses.",
+      "Remove dead code, redundant layers, stale references, and speculative validators before adding anything. Retain guards that have an actual boundary or contract.",
+      "Keep one source of truth for each choice and pass its result directly to callers. Verify preserved behavior and check that the final diff contains only the work the contract needs."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-swarm",
+    "category": "orchestration",
+    "description": "Partition independent work across workers or race several attempts against a fixed selection rule.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/swarm/SKILL.md",
+        "line": 18,
+        "take": "Partition or race with a frozen selection rule and require exact evidence from each required slice."
+      }
+    ],
+    "steps": [
+      "Define a verifiable done predicate. Pick coverage by disjoint slices, a same-brief race, or both. For a race specify first acceptable, rank all, or best-of before work starts.",
+      "Give each worker a standalone brief and a separate write target. Name the exact input revision and measurement recipe where findings depend on them.",
+      "Use authorized host delegation when available. Otherwise run the slices or attempts serially and retain the same contracts, while disclosing the execution mode.",
+      "Check each primary result against its brief before aggregation. Retry an incomplete slice once when useful, then record an uncovered gap. Apply the selection rule and provide one consolidated report with evidence."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-teach-a-codebase",
+    "category": "communication",
+    "description": "Teach a reader what a subsystem is, how it works, and what evidence explains its design.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/teach/SKILL.md",
+        "line": 11,
+        "take": "Combine architecture and rationale at the reader’s depth without turning an inference into a fact."
+      }
+    ],
+    "steps": [
+      "Identify what the reader needs to understand to act. Gather the current architecture and, where it matters, earlier design decisions from the record.",
+      "Define the concept in everyday words and tie it to one concrete example from the project. Walk through the normal flow before adding a relevant constraint or exception.",
+      "Use the smallest helpful diagram or demo when relationships are easier to see. Add one moving part at a time for complex systems and preserve uncertainty about design rationale.",
+      "Give the explanation directly at the reader’s depth. Keep source links near technical claims and let the reader choose where to go deeper."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-type-system-discipline",
+    "category": "principles",
+    "description": "Use a static type system to make bad states and mixed-up values difficult or impossible to express.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/principle-type-system-discipline/SKILL.md",
+        "line": 9,
+        "take": "Represent legal variants, brand semantic primitives, parse external data once, and derive from schemas."
+      }
+    ],
+    "steps": [
+      "Choose representations that admit only valid combinations. Use exhaustive variant handling where the language supports it.",
+      "Give overloaded primitives distinct semantic types when mixing them up is a real risk. Construct those values from checked inputs at the boundary.",
+      "Derive types from authoritative schemas before adding parallel definitions. Keep unknown input at the perimeter and verify new cases through the boundary."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-typescript-practice",
+    "category": "engineering",
+    "description": "Apply TypeScript’s types and runtime schemas to make legal variants explicit and verify observable behavior.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/typescript-best-practices/SKILL.md",
+        "line": 12,
+        "take": "Discriminated unions, runtime schemas, safe narrowing, exhaustive cases, and real tests."
+      }
+    ],
+    "steps": [
+      "Model variants with discriminants and exhaust their cases. Brand semantic primitives only after boundary validation, and prefer the simplest type that keeps operations total.",
+      "Accept untrusted inputs as unknown. Parse with the project’s schema library and derive the static type where possible. Narrow from discriminants or checked guards and use satisfies for shape conformance.",
+      "Keep object arguments self-documenting where useful, and use existing types or schema-derived projections before parallel interfaces. Use the project logger with diagnostic context.",
+      "Run observable-behavior tests through the framework’s real primitives and check browser-visible changes in a running app where applicable."
+    ],
+    "requirements": []
+  }
+]

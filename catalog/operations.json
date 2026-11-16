@@ -1,0 +1,759 @@
+[
+  {
+    "id": "qstack-browse",
+    "category": "browser",
+    "description": "Open a browser for a focused page check, interaction, or visible walkthrough.",
+    "sources": [
+      {
+        "path": "gstack/browse/SKILL.md",
+        "line": 398,
+        "take": "Focused browser inspection and evidence capture."
+      },
+      {
+        "path": "gstack/open-gstack-browser/SKILL.md",
+        "line": 152,
+        "take": "Visible browser launch and intentional reuse of an active session."
+      }
+    ],
+    "steps": [
+      "Identify the target URL or tab, accessible session, and whether the user needs a visible browser. Reuse the named tab or create a dedicated tab when isolation is needed.",
+      "Start the configured browser visibly when requested and verify readiness. Keep existing sessions and profiles available when a new tab suffices.",
+      "Snapshot before acting. Scope actions to intent, then capture page change, meaningful console errors or a screenshot. Leave a requested visible session available."
+    ],
+    "requirements": [
+      "An available browser interface. A walkthrough requires a visible session."
+    ]
+  },
+  {
+    "id": "qstack-canary",
+    "category": "operations",
+    "description": "Watch a newly deployed application for persistent production regressions.",
+    "sources": [
+      {
+        "path": "gstack/canary/SKILL.md",
+        "line": 225,
+        "take": "Bounded post-deployment rounds with screenshots and baseline comparisons."
+      }
+    ],
+    "steps": [
+      "Identify the deployment, approved read-only routes, comparison baselines and observation window. Timestamp the first observation.",
+      "Check page state, relevant console failures, critical resources and latency or layout signals. Capture comparable screenshots in each round.",
+      "Use persistent deviations across consecutive rounds as regression evidence. Record immediate outages as observed. Without a baseline, label the report as a health check.",
+      "Return routes, timestamps, differences and evidence. Route investigation or remediation as a separate operation."
+    ],
+    "requirements": [
+      "Read access to the deployed application and a browser or health-check interface."
+    ]
+  },
+  {
+    "id": "qstack-release-crew",
+    "category": "delivery",
+    "description": "Coordinate release lanes through a controller and a verified merge train.",
+    "sources": [
+      {
+        "path": "gstack/captain/SKILL.md",
+        "line": 167,
+        "take": "Version-bound readiness records, staged trains, one controller, and a compact owner digest."
+      }
+    ],
+    "steps": [
+      "Assign authorized lanes isolated work areas, edit scopes, deliverables and stop conditions. Keep merge authority with the controller. Have lanes report the exact ready PR head, base, checks and pending decisions.",
+      "Validate receipts and approvals against current heads. Build an ordered train in an isolated worktree, record the base and prefix trees, and verify the combined tree.",
+      "Land approved candidates while heads and base match the checked sequence. Rebuild when a head or base moves. Maintain a digest for owner decisions, newly landed changes, and blockers.",
+      "Route confirmed flaky tests to a repair lane and preserve baseline and rerun evidence."
+    ],
+    "requirements": [
+      "Authorized parallel-agent and forge capabilities. Merging requires the project's approvals."
+    ]
+  },
+  {
+    "id": "qstack-guardrails",
+    "category": "operations",
+    "description": "Set, inspect, or release an edit boundary and destructive-action guard for a work session.",
+    "sources": [
+      {
+        "path": "gstack/careful/SKILL.md",
+        "mode": "Use warning mode for destructive actions and preserve any stronger controls.",
+        "line": 40,
+        "take": "Detect destructive actions across shells and data tools."
+      },
+      {
+        "path": "gstack/freeze/SKILL.md",
+        "mode": "Set a scoped edit boundary for the named session. Read it back and state whether enforcement is available.",
+        "line": 34,
+        "take": "Limit writes to a selected directory."
+      },
+      {
+        "path": "gstack/guard/SKILL.md",
+        "mode": "Combine scoped edits with destructive-action warnings for the named session.",
+        "line": 44,
+        "take": "Combine destructive warnings and scoped edits."
+      },
+      {
+        "path": "gstack/unfreeze/SKILL.md",
+        "mode": "Release the named edit boundary through the tool that owns it and report the resulting state.",
+        "line": 26,
+        "take": "Release an edit boundary through its state owner."
+      }
+    ],
+    "steps": [
+      "Choose warning, scoped edits, both, status, or release. Canonicalize the allowed directory and target, including symlinks, before comparing them.",
+      "Route recursive deletion, data-destructive actions, and history rewrites through existing host controls. Identify concrete effects and preserve stronger host protections.",
+      "Set or release only the named session's boundary. Leave unrelated locks in place and preserve the prior state on busy or uncertain ownership.",
+      "Read the state back. Report whether the host enforces the boundary or the agent follows it as advisory guidance."
+    ],
+    "requirements": [
+      "Enforcement requires a host with directory-scoped write controls."
+    ]
+  },
+  {
+    "id": "qstack-second-opinion",
+    "category": "operations",
+    "description": "Get an independent review, challenge, or consultation from another available agent.",
+    "sources": [
+      {
+        "path": "gstack/codex/SKILL.md",
+        "line": 319,
+        "take": "Select review, challenge, or consultation and synthesize the independent result."
+      }
+    ],
+    "steps": [
+      "Resolve scope to review of a pinned change, challenge to a named plan, or consultation about a question. Specify evidence and expected output.",
+      "Select an authorized independent worker and send only the selected inputs. Use read-only access for review and challenge and require evidence or uncertainty on material claims.",
+      "Check the load-bearing claims against the original scope. Present the outside answer and one specific synthesis recommendation."
+    ],
+    "requirements": [
+      "An independent worker or model authorized to receive the selected inputs."
+    ]
+  },
+  {
+    "id": "qstack-context",
+    "category": "operations",
+    "description": "Save, list, or reconstruct working context so another session can resume accurately.",
+    "sources": [
+      {
+        "path": "gstack/context-save/SKILL.md",
+        "mode": "Save an append-only checkpoint grounded in the current project and revision.",
+        "line": 274,
+        "take": "Persist a recoverable handoff with decisions and live state."
+      },
+      {
+        "path": "gstack/context-restore/SKILL.md",
+        "mode": "Restore the matching checkpoint and report revision drift. Use available project records if session history is unavailable.",
+        "line": 145,
+        "take": "Find and validate project checkpoints or recover from existing records."
+      },
+      {
+        "path": "pstack/pstack/skills/recall/SKILL.md",
+        "mode": "Reconstruct current context from available evidence and label unverified history.",
+        "line": 24,
+        "take": "Combine session history with shared records to reconstruct the current state."
+      }
+    ],
+    "steps": [
+      "Resolve the project and active ref. In save mode, write an append-only checkpoint with goal, decisions, affected files, verified results, blockers, and next action.",
+      "In list or restore mode, identify the matching checkpoint and compare the saved revision and PR with the current worktree. Report drift that changes how to resume.",
+      "When the checkpoint is absent or incomplete, reconstruct from the current checkout, authorized shared history and in-scope transcripts. Label unverified claims.",
+      "Return a short capsule, workstream statuses, outstanding problems and one next move."
+    ],
+    "requirements": [
+      "Project records or an existing checkpoint. Session history is optional and must be in scope."
+    ]
+  },
+  {
+    "id": "qstack-security-audit",
+    "category": "operations",
+    "description": "Perform a defensive source and configuration audit of an authorized application.",
+    "sources": [
+      {
+        "path": "gstack/cso/SKILL.md",
+        "line": 16,
+        "take": "Evidence-based defensive audit with trust boundaries, scoped findings, and coverage transparency."
+      }
+    ],
+    "steps": [
+      "Record the audit scope. Review architecture, trust boundaries, data exposure, authorization hooks, dependencies and deployment configuration from source and authorized read-only evidence.",
+      "For each actionable issue, point to file and line, name the violated invariant and explain impact and remediation. Distinguish potential weaknesses from confirmed source findings.",
+      "Review existing defensive tests and propose a safe regression assertion for each fix. Report coverage gaps, and limit static conclusions to what was inspected.",
+      "Deliver prioritized remediation with evidence, confidence, and owning component through authorized channels."
+    ],
+    "requirements": [
+      "Read access to in-scope source, configuration, and defensive evidence."
+    ]
+  },
+  {
+    "id": "qstack-evaluation-plan",
+    "category": "operations",
+    "description": "Preregister and run a controlled evaluation with a measurable outcome, baseline, and budget.",
+    "sources": [
+      {
+        "path": "gstack/eval-plan/SKILL.md",
+        "line": 130,
+        "take": "Preregister metrics, decision rules, controls, data split, and staged spend."
+      }
+    ],
+    "steps": [
+      "Define arms, baseline, dataset split, metrics, thresholds, sample size, stop rules, budget and result-to-action mapping before collecting priced evidence.",
+      "Run a zero-cost dry run on development rows to confirm schema, prompts, logs, outputs and budget instrumentation. Keep held-out examples out of development and calibrate model judges against human labels.",
+      "Run a small authorized capped pilot to estimate full cost and error rates. Run the approved remaining arms under frozen conditions.",
+      "Report side-by-side measurements, sample sizes, costs, uncertainty and the preregistered decision. Treat a changed experiment as a new run."
+    ],
+    "requirements": [
+      "Data and an evaluation harness. Paid work requires the applicable budget and authorization."
+    ]
+  },
+  {
+    "id": "qstack-upgrade-workflow",
+    "category": "operations",
+    "description": "Upgrade a workflow package from its chosen release channel while protecting local work.",
+    "sources": [
+      {
+        "path": "gstack/gstack-upgrade/SKILL.md",
+        "line": 138,
+        "take": "Channel-bound update with version checks, local-change handling, and recovery state."
+      }
+    ],
+    "steps": [
+      "Identify the installation method, current version, configured channel and intended target. Record how to restore the current release.",
+      "Check package authenticity, dependencies, local modifications and settings. Preserve user work and upgrade through its existing manager or managed path.",
+      "Refresh only managed registrations. Verify the reported version, skill discovery, and one representative invocation. Restore the prior supported state if verification fails."
+    ],
+    "requirements": [
+      "A known release channel and a supported method to reinstall the prior version."
+    ]
+  },
+  {
+    "id": "qstack-health",
+    "category": "operations",
+    "description": "Build a repeatable repository health dashboard from native project checks.",
+    "sources": [
+      {
+        "path": "gstack/health/SKILL.md",
+        "line": 219,
+        "take": "Discover tools, score categories, and save comparable health history."
+      }
+    ],
+    "steps": [
+      "Discover native type, lint, tests, coverage, and complexity checks. Mark unavailable checks and distinguish tool startup errors from valid failures.",
+      "Run each applicable category once against the same revision. Capture commands, exit statuses, raw counts, and findings. Show the disclosed scoring rubric and measured coverage.",
+      "Save a timestamped history row only when sufficient comparable measurements exist. Compare matching categories and thresholds to a preceding run, with evidence links for regressions."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-ios-bridge-clean",
+    "category": "operations",
+    "description": "Remove an iOS debug bridge and verify the release build has no bridge residue.",
+    "sources": [
+      {
+        "path": "gstack/ios-clean/SKILL.md",
+        "line": 135,
+        "take": "Inventory DebugBridge wiring, remove bridge-owned pieces, and verify a release build."
+      }
+    ],
+    "steps": [
+      "Inventory the debug package or target, compile-condition imports, boot hooks, generated accessors, and marker annotations. Identify application state owned by the user.",
+      "Remove bridge-owned package references, debug startup code and generated artifacts within the requested scope. Preserve hand-written application logic.",
+      "Search for lingering references, build the release configuration, and inspect available binary symbols for bridge residue. Report files removed and rollback information."
+    ],
+    "requirements": [
+      "Target iOS source and Swift or Xcode release-build capability."
+    ]
+  },
+  {
+    "id": "qstack-ios-design-review",
+    "category": "operations",
+    "description": "Review visual design and accessibility of an iOS app on a physical device.",
+    "sources": [
+      {
+        "path": "gstack/ios-design-review/SKILL.md",
+        "line": 111,
+        "take": "Use real-device screenshots and accessibility evidence with an iOS rubric."
+      }
+    ],
+    "steps": [
+      "Identify the physical device, build and screen list. Open a read-only observation session and capture screenshots and accessibility elements.",
+      "Assess typography and Dynamic Type, rhythm, contrast, safe areas, hit targets, native behavior, and meaningful states. Tie findings to specific observed elements.",
+      "Rank findings by user impact, explain what would resolve each, and record screen coverage and device limitations."
+    ],
+    "requirements": [
+      "An authorized physical iOS device and a screenshot or accessibility interface."
+    ]
+  },
+  {
+    "id": "qstack-ios-fix",
+    "category": "operations",
+    "description": "Fix a reproducible iOS defect with before-and-after evidence on a physical device.",
+    "sources": [
+      {
+        "path": "gstack/ios-fix/SKILL.md",
+        "line": 102,
+        "take": "Capture the bug state, trace the actual Swift cause, and replay the same state after fixing."
+      }
+    ],
+    "steps": [
+      "Reproduce the exact flow on the affected build. Capture the wrong result and a reproducible app-state snapshot if the adapter supports it.",
+      "Trace the failure through SwiftUI state, the view model and underlying mutation. Apply the smallest change that corrects the demonstrated cause.",
+      "Rebuild and launch on the intended device. Restore the snapshot or replay the inputs and compare the visible result. Add a regression fixture when the project supports it and coverage is missing.",
+      "Report the exact baseline and patched builds, relevant source, replay result, and any device-only gap."
+    ],
+    "requirements": [
+      "A physical iOS device, build tools, and a project-supported UI or debug adapter."
+    ]
+  },
+  {
+    "id": "qstack-ios-qa",
+    "category": "operations",
+    "description": "Exercise and verify a SwiftUI app on an authorized physical iOS device.",
+    "sources": [
+      {
+        "path": "gstack/ios-qa/SKILL.md",
+        "line": 139,
+        "take": "Use capability-scoped device sessions, verified builds, real interactions, and cleanup."
+      }
+    ],
+    "steps": [
+      "Identify the device, app source, build and requested journey. Verify the device connection and app identity through authorized Xcode UI automation or a debug adapter.",
+      "Scope observation, interaction and state changes to the verified device. If the established Debug target relies on generated accessors, prepare them from the relevant Swift state.",
+      "Drive the real path. Capture screenshots, accessibility or console evidence, and actual state changes. Confirm gestures or transitions through their observed effect.",
+      "Release the session. Report the exact build, successful checks and specific adapter limitations."
+    ],
+    "requirements": [
+      "Physical iOS device with a supported UI or debug adapter. Rebuilding requires suitable build tooling."
+    ]
+  },
+  {
+    "id": "qstack-ios-bridge-sync",
+    "category": "operations",
+    "description": "Regenerate a SwiftUI debug bridge after state or bridge changes.",
+    "sources": [
+      {
+        "path": "gstack/ios-sync/SKILL.md",
+        "line": 100,
+        "take": "Refresh generated state accessors and verify the new schema on a live device."
+      }
+    ],
+    "steps": [
+      "Locate the installed Debug target, generated accessors, canonical state models and project generator. Record the intended schema change.",
+      "Regenerate owned artifacts using the maintained tool. Inspect the diff and keep hand-written logic outside regeneration.",
+      "Build the Debug app, launch on the intended device and confirm the expected accessor schema hash and exposed state. Report generated files and build and device evidence."
+    ],
+    "requirements": [
+      "Existing iOS debug bridge, its generator and Swift build tools. Device checks require a physical device."
+    ]
+  },
+  {
+    "id": "qstack-land-and-deploy",
+    "category": "delivery",
+    "description": "Land an approved pull request and verify its resulting deployment.",
+    "sources": [
+      {
+        "path": "gstack/land-and-deploy/SKILL.md",
+        "line": 298,
+        "take": "Exact-head PR gates, deployment verification, canary monitoring, and rollback escalation."
+      }
+    ],
+    "steps": [
+      "Identify the PR head, base branch, deploy target, merge method and required checks. Verify readiness, approvals and CI for the pinned revision.",
+      "Execute the authorized merge while the observed head is current. Record the landed revision and wait for its deployment. Distinguish skipped deployment from rollout failure.",
+      "Verify the exact deployed revision and configured health and smoke routes. Use the canary workflow when a monitoring window applies.",
+      "On failure, preserve evidence and follow any authorized rollback procedure. Report the landed revision, deployment outcome and observed health."
+    ],
+    "requirements": [
+      "Forge and deploy adapters with the project's required permissions and release configuration."
+    ]
+  },
+  {
+    "id": "qstack-release-queue-report",
+    "category": "delivery",
+    "description": "Inspect release queue order and version conflicts without modifying the queue.",
+    "sources": [
+      {
+        "path": "gstack/landing-report/SKILL.md",
+        "line": 153,
+        "take": "Read-only view of base version, sibling PRs, slot projections and collisions."
+      }
+    ],
+    "steps": [
+      "Resolve the forge, base branch, base version and current head. Read live queue and PR version claims with timestamps.",
+      "Summarize planned order, ready revisions, each candidate's version and projected sibling conflicts. Distinguish live values from cached observations.",
+      "Return a single queue view, the evidence for conflicts, and the next decision the queue owner needs to make."
+    ],
+    "requirements": [
+      "Read access to the forge or a saved queue snapshot with known freshness."
+    ]
+  },
+  {
+    "id": "qstack-project-learnings",
+    "category": "operations",
+    "description": "Search, add, export, or prune reusable project learnings.",
+    "sources": [
+      {
+        "path": "gstack/learn/SKILL.md",
+        "line": 117,
+        "take": "Maintain a scoped learning log and identify stale or conflicting entries before pruning."
+      }
+    ],
+    "steps": [
+      "Resolve the requested mode and project. Search entries by key and type, and check cited evidence before reporting the latest supported learning.",
+      "For additions, record the durable lesson, its trigger and evidence. Avoid secrets and one-off inferences. Export only the requested scope.",
+      "For pruning, identify stale paths and contradictory evidence. Apply only the requested keep, replace or remove action. Leave product code untouched."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-modernize-pr",
+    "category": "delivery",
+    "description": "Decide whether an aging pull request should be updated, reworked, or closed against the current base.",
+    "sources": [
+      {
+        "path": "gstack/modernize/SKILL.md",
+        "line": 174,
+        "take": "Classify the PR from current base evidence, preserve intent and pin any remote update."
+      }
+    ],
+    "steps": [
+      "Read the PR as a claim about behavior. Pin its observed head and base, inspect current implementation and history, and check whether another change already solved it.",
+      "Choose modernize, rework, or recommend closure with evidence. Modernize in isolation and verify every original effect against the refreshed base.",
+      "For an authorized update, use the forge's expected-head protection. Report the disposition, before-after revisions, evidence and any closure decision the owner must make."
+    ],
+    "requirements": [
+      "Repository history and read access to the PR. External mutation requires the applicable authorization."
+    ]
+  },
+  {
+    "id": "qstack-browser-pairing",
+    "category": "browser",
+    "description": "Pair another authorized agent with a scoped browser session.",
+    "sources": [
+      {
+        "path": "gstack/pair-agent/SKILL.md",
+        "line": 97,
+        "take": "Temporary pairing with receiving-agent setup, connection proof and revocation."
+      }
+    ],
+    "steps": [
+      "Confirm the receiving agent, permitted domains or tabs, purpose and time window. Choose a dedicated profile when the current profile contains unrelated data.",
+      "Issue a short-lived and minimally scoped connection through the supported browser controller. Deliver setup information through its secure pairing mechanism.",
+      "Have the receiving agent verify the intended tab with a harmless scoped read. Report the connection and how its owner can revoke it. Revoke or close the dedicated session when pairing ends."
+    ],
+    "requirements": [
+      "A browser controller with authenticated, revocable pairing and an authorized receiving agent."
+    ]
+  },
+  {
+    "id": "qstack-retro",
+    "category": "operations",
+    "description": "Produce a repository, cross-project, or comparative retrospective from verifiable engineering activity.",
+    "sources": [
+      {
+        "path": "gstack/retro/SKILL.md",
+        "line": 185,
+        "take": "Time-windowed engineering metrics, comparisons and lessons grounded in repository evidence."
+      }
+    ],
+    "steps": [
+      "Resolve scope, dates and user timezone. For comparison, use an immediately preceding equal window with the same filters. Include other projects only for the requested cross-project view.",
+      "Gather commits, reviews, PRs and releases from available records. Deduplicate by repository and identity. State any missing sources or incomplete observations.",
+      "Summarize delivered outcomes, unfinished work, recurring friction, and meaningful movement in comparable measures. Point to concrete evidence and avoid drawing productivity conclusions from commit counts alone."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-runaway-work",
+    "category": "automation",
+    "description": "Identify stalled or spending-heavy agent work and perform an authorized stop or clean handoff.",
+    "sources": [
+      {
+        "path": "gstack/runaway-stopper/SKILL.md",
+        "line": 161,
+        "take": "Detect empty wakes and runaway activity, then stop or rotate exactly scoped work."
+      }
+    ],
+    "steps": [
+      "Inspect metrics and recent actions for in-scope sessions. Distinguish a legitimate wait from looping, uncontrolled spend and repeated no-op wakes. Record objective evidence and configured caps.",
+      "For an authorized stop, confirm exact job identity and preserve its artifacts. Route another controller's work through its coordination interface.",
+      "For rotation, capture state, open decisions and evidence. Start a successor only under the existing authorization and verify handoff before ending the original. Replace duplicate polling with completion notifications when available."
+    ],
+    "requirements": [
+      "A job or agent scheduler that reports reliable identities, status and metrics."
+    ]
+  },
+  {
+    "id": "qstack-scrape",
+    "category": "browser",
+    "description": "Extract requested fields from an authorized page through a bounded read-only flow.",
+    "sources": [
+      {
+        "path": "gstack/scrape/SKILL.md",
+        "line": 270,
+        "take": "Scope extraction to intended fields, avoid mutations and distinguish missing data."
+      }
+    ],
+    "steps": [
+      "Identify the page, item boundaries, output schema and stop condition. Choose an authorized browser session and use rendered content as evidence.",
+      "Use DOM or accessibility structures and permitted navigation for pagination. Distinguish incomplete hydration from empty data and preserve source strings that carry meaning.",
+      "Deduplicate records and mark inaccessible fields and truncated coverage. Return structured output with source links and a reproducible read-only sequence when repeatability matters."
+    ],
+    "requirements": [
+      "Authorized read access to the page and a browser tool when static retrieval is insufficient."
+    ]
+  },
+  {
+    "id": "qstack-browser-session-setup",
+    "category": "browser",
+    "description": "Set up an authorized browser profile for pages that require the user's signed-in session.",
+    "sources": [
+      {
+        "path": "gstack/setup-browser-cookies/SKILL.md",
+        "line": 160,
+        "take": "Consent, domain scope, approved profile handoff, and verification of usable access."
+      }
+    ],
+    "steps": [
+      "Check whether an existing authorized session already has access to the requested page. Reuse it when appropriate and leave unrelated sessions intact.",
+      "Use the browser's native sign-in or an explicitly approved secure session handoff offered by the host. Scope the profile and target domains to the task.",
+      "Verify access through a harmless in-scope read and report the verified profile, domains, remaining permission constraints and how to disconnect."
+    ],
+    "requirements": [
+      "An authorized browser interface. The user may need to complete authentication."
+    ]
+  },
+  {
+    "id": "qstack-deployment-setup",
+    "category": "delivery",
+    "description": "Configure a project's deploy target and readiness checks for later release workflows.",
+    "sources": [
+      {
+        "path": "gstack/setup-deploy/SKILL.md",
+        "line": 135,
+        "take": "Detect platform, target and health commands, and persist the chosen configuration."
+      }
+    ],
+    "steps": [
+      "Read project and CI configuration for release platform, workflow, build artifact, environments and readiness signals. Resolve the target when several environments match.",
+      "Record release command, target identity, exact revision check, smoke checks, wait bounds and rollback process in the repository's normal config.",
+      "Validate read-only status and health commands against the chosen target. Use an available dry-run or existing release record. Report dependencies and point the landing procedure to the configuration."
+    ],
+    "requirements": [
+      "Project deploy metadata and a supported platform status interface."
+    ]
+  },
+  {
+    "id": "qstack-knowledge-setup",
+    "category": "operations",
+    "description": "Connect a project knowledge service and verify its access scope.",
+    "sources": [
+      {
+        "path": "gstack/setup-gbrain/SKILL.md",
+        "line": 411,
+        "take": "Verify the connection, record per-remote access policy and handle transcript opt-in separately."
+      }
+    ],
+    "steps": [
+      "Inspect current settings, repository identity and service health. Reuse a verified working instance when it satisfies the request.",
+      "Configure the chosen service or local index through its approved package or connector. Keep credentials in its secure store and record permitted remotes and access modes.",
+      "Treat transcript ingestion as a separate opt-in scope. Verify the intended service with a scoped query and report registered scope, readiness and unavailable capabilities."
+    ],
+    "requirements": [
+      "A supported local index or knowledge service with its authorized connector or CLI."
+    ]
+  },
+  {
+    "id": "qstack-ship",
+    "category": "delivery",
+    "description": "Prepare a verified branch and publish a requested pull request using the repository's release process.",
+    "sources": [
+      {
+        "path": "gstack/ship/SKILL.md",
+        "line": 654,
+        "take": "Bind checks to the exact tree, refresh release artifacts when appropriate, and publish the verified PR."
+      }
+    ],
+    "steps": [
+      "Resolve branch, destination base, open PR and release requirements. Identify whether the user requested readiness inspection, branch preparation, or publication. Inspect the current tree for a readiness-only request. If branch preparation is authorized, preserve unrelated work and bring the branch onto the intended base before checking it.",
+      "Reuse matching evidence and run required missing checks once for the final tree. Review intended changes, version and documentation requirements, and prepare the PR body with evidence.",
+      "Create or update the requested branch or PR through its normal forge path. Verify that the remote head matches the reviewed revision and report the PR link, checks, blockers and release notes."
+    ],
+    "requirements": [
+      "Repository test interfaces and forge permission for a requested publication."
+    ]
+  },
+  {
+    "id": "qstack-browser-extractor-authoring",
+    "category": "browser",
+    "description": "Turn a successful read-only browser extraction into a tested reusable skill.",
+    "sources": [
+      {
+        "path": "gstack/skillify/SKILL.md",
+        "line": 122,
+        "take": "Require a proven scrape, representative fixture, tested script, and atomic installation."
+      }
+    ],
+    "steps": [
+      "Identify the recent successful extraction, its site scope, input contract, returned fields and evidenced failure cases.",
+      "Stage the reusable procedure with stable selectors or semantic structures. Capture an authorized sanitized fixture and test success, missing data, allowed pagination and relevant markup drift.",
+      "Run the staged tests and replay the same read-only flow where necessary. Prove the skill works through its normal entry point, then install it in the requested scope."
+    ],
+    "requirements": [
+      "A previous successful extraction and an available browser or fixture test interface."
+    ]
+  },
+  {
+    "id": "qstack-knowledge-sync",
+    "category": "operations",
+    "description": "Refresh a configured repository knowledge index and confirm source health.",
+    "sources": [
+      {
+        "path": "gstack/sync-gbrain/SKILL.md",
+        "line": 357,
+        "take": "Scoped sync, source health verification, and managed agent guidance refresh."
+      }
+    ],
+    "steps": [
+      "Verify the registered service, repository source identity, access policy and permitted memory sources. Choose incremental, full or dry-run mode.",
+      "Synchronize only approved sources through the service's supported tool. Serialize shared-state updates and report skipped and failed sources individually.",
+      "Check a known result or indexed count for the intended source. Refresh only the managed guidance for verified capabilities and report freshness and remaining errors."
+    ],
+    "requirements": [
+      "A configured knowledge service and the appropriate repository indexing permissions."
+    ]
+  },
+  {
+    "id": "qstack-remote-verify",
+    "category": "operations",
+    "description": "Run a heavy suite on an authorized disposable compute runner and confirm teardown.",
+    "sources": [
+      {
+        "path": "gstack/ubicloud/SKILL.md",
+        "line": 161,
+        "take": "Use a quota-checked ephemeral runner, bounded job, logs, watchdog, and verified cleanup."
+      }
+    ],
+    "steps": [
+      "Establish the suite and exact revision. Use checked-in bootstrap and verification commands, and preflight environment capacity, budget, and source state.",
+      "Provision the authorized runner with an owner identifier and expiry. Record the resource ID, start the job, and use supported completion or hang handling.",
+      "Preserve logs, outputs and exit status. Confirm resource teardown on every exit path. Treat unknown cleanup as incomplete and report the resource identity."
+    ],
+    "requirements": [
+      "An authorized runner provider with quota checks, bounded lifetime and resource status."
+    ]
+  },
+  {
+    "id": "qstack-decision-trail",
+    "category": "operations",
+    "description": "Keep an append-only evidence trail during long-running or unattended work.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/show-me-your-work/SKILL.md",
+        "line": 34,
+        "take": "Append decision rows, record a run boundary, and audit evidence without rewriting history."
+      }
+    ],
+    "steps": [
+      "Create or reuse a scoped TSV trail with time, phase, decision, reason, evidence and result. Start each appended run with a boundary row.",
+      "Record consequential decisions, pivots, blockers and verified checkpoints with resolvable evidence pointers. Keep cells single-line and escape spreadsheet formula prefixes when exporting.",
+      "Check this run's rows and pointers against actual work before handing off. Append corrections or superseding rows and point the reader to the relevant run range."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-personal-workflow",
+    "category": "automation",
+    "description": "Draft or update a personal skill from the user's demonstrated working preferences.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/automate-me/SKILL.md",
+        "line": 13,
+        "take": "Find the existing personal mode, collect stable preferences and validate a focused revision."
+      }
+    ],
+    "steps": [
+      "Identify the user's desired workflow or style and inspect the named skill if it exists. Ask for examples only when an important preference cannot be grounded.",
+      "Extract durable non-default preferences from user examples and specifically authorized records. Separate recurring patterns from one-off corrections and contradictions.",
+      "Draft concise trigger-specific instructions in a portable skill format. Reference existing procedures where appropriate and check the result against representative examples before saving."
+    ],
+    "requirements": []
+  },
+  {
+    "id": "qstack-webhook-controls",
+    "category": "automation",
+    "description": "Build a small control interface for an authorized webhook-driven routine.",
+    "sources": [
+      {
+        "path": "pstack/pstack/skills/make-bot-ui/SKILL.md",
+        "line": 13,
+        "take": "Define control events, secure sender authentication, and verify private or local UI operation."
+      }
+    ],
+    "steps": [
+      "Identify permitted routine actions and define a small request schema. Validate incoming fields and expose only those actions.",
+      "Configure the routine through the available provider. Keep credentials in its secure store and use a trusted component for authenticated requests. Treat webhook data as input.",
+      "Build controls with execution status and test harmless success and invalid-input rejection. Expose the interface on the local machine or an explicitly authorized private network. Report bounded addresses and cleanup."
+    ],
+    "requirements": [
+      "An authorized webhook provider and a secure credential interface."
+    ]
+  },
+  {
+    "id": "qstack-issue-triage",
+    "category": "automation",
+    "description": "Triage an in-scope chat issue report into one evidence-backed thread verdict.",
+    "sources": [
+      {
+        "path": "pstack/pstack/automations/benny/skills/triage-issue-reports/SKILL.md",
+        "line": 144,
+        "take": "Freeze source thread, classify after tracing cause, dedupe tracker issues, and send an authorized single verdict."
+      }
+    ],
+    "steps": [
+      "Pin the configured channel, source thread and permalink. Read the full report, approved attachments and current fixes before assigning category or owner.",
+      "Trace the likely cause from action to observed result. Separate confirmed evidence from hypotheses and route by cause. Search the tracker by source permalink, signature, trigger and affected area.",
+      "Create a tracker issue only within the configured authorization for a clearly demonstrated, unresolved, unmatched issue. Post one authorized verdict as a reply under the pinned thread and keep its identity stable across retries."
+    ],
+    "requirements": [
+      "Configured source and authorized thread access, plus a tracker adapter when linking or creating issues."
+    ]
+  },
+  {
+    "id": "qstack-issue-repro",
+    "category": "automation",
+    "description": "Reproduce a triaged app issue and prepare a bounded fix when evidence supports it.",
+    "sources": [
+      {
+        "path": "pstack/pstack/automations/benny/skills/reproduce-and-fix-issues/SKILL.md",
+        "line": 267,
+        "take": "Validate the triage and ownership contracts, reproduce on the real UI, and prove the fix before draft publication."
+      }
+    ],
+    "steps": [
+      "Pin the source thread and validate the triage verdict and actor. Check whether someone claimed the fix or whether an existing change already covers it.",
+      "Exercise the exact user path with the authorized adapter. Capture expected and observed results and environment. Verify an existing fix before creating another and record failures to reproduce.",
+      "Fix only an authorized, confirmed issue with a bounded demonstrated cause. Isolate the edit, replay the same path with before-and-after evidence, and run required checks.",
+      "Where authorized, open a draft PR linked to the issue and reply on the pinned thread. Preserve evidence and clean up the temporary environment."
+    ],
+    "requirements": [
+      "Configured triage contract, app-control adapter, and authorized repository and thread access."
+    ]
+  },
+  {
+    "id": "qstack-issue-automation-setup",
+    "category": "automation",
+    "description": "Configure and test adapters for thread-scoped issue triage and reproduction.",
+    "sources": [
+      {
+        "path": "pstack/pstack/automations/benny/skills/setup-benny/SKILL.md",
+        "line": 117,
+        "take": "Configure evidence, tracker and control adapters and test thread safety before enablement."
+      }
+    ],
+    "steps": [
+      "Record source channel, actors, tracker routes, repos, budgets and authorization for automated issue or draft PR creation. Store secrets with the integration provider.",
+      "Define adapter contracts for attachments, read-only tracker dedupe, thread replies, real-app reproduction and optional draft PR creation. Verify the app can be driven through a concrete feature map.",
+      "Test a harmless thread. Check one reply in the correct parent, correct dedupe, blocking on missing permissions, and evidence capture. Enable live handling only for the verified requested scope."
+    ],
+    "requirements": [
+      "Authorized chat, tracker, repository, automation and app-control capabilities for the configured modes."
+    ]
+  }
+]

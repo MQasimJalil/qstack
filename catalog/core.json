@@ -1,0 +1,122 @@
+[
+  {
+    "id": "qstack",
+    "category": "orchestration",
+    "description": "Route work across the complete qstack catalog or run the executable pilot.",
+    "manual": true,
+    "sources": [
+      {"path": "gstack/SKILL.md", "line": 152, "take": "Route by the work requested, then open the selected procedure."}
+    ]
+  },
+  {
+    "id": "qstack-plan",
+    "category": "planning",
+    "description": "Produce one engineering plan with explicit ownership, a reachable failure, and appropriate checks.",
+    "manual": true,
+    "sources": [
+      {"path": "gstack/plan-eng-review/SKILL.md", "line": 22, "take": "Review the plan's boundaries, failure modes, and verification coverage."},
+      {"path": "pstack/pstack/skills/architect/SKILL.md", "line": 27, "take": "Develop materially different ownership and interface designs before committing to one."}
+    ]
+  },
+  {
+    "id": "qstack-model",
+    "category": "verification",
+    "description": "Turn an ordering hazard into a bounded TLC model check and a witness for implementation or UI verification.",
+    "manual": true,
+    "sources": [
+      {"path": "pstack/pstack/skills/statechart/SKILL.md", "line": 23, "take": "Name transitions, handle quiescent states, and explain the counterexample as a sequence."}
+    ]
+  },
+  {
+    "id": "qstack-create-formal-verification",
+    "category": "verification",
+    "description": "Author a reusable formal verification skill for a high-cost correctness property and prove that the check detects a fault.",
+    "sources": [
+      {"path": "pstack/pstack/skills/create-formal-verification-skill/SKILL.md", "line": 17, "take": "Choose the verification technique from the correctness question and keep a reproducible proof tied to the implementation."}
+    ],
+    "steps": [
+      "Choose a correctness promise whose failure has a meaningful cost and is hard to reach with examples. Identify its code boundary and observable failure.",
+      "Select the lowest-cost technique that answers the question. Use TLC and qstack-model for event ordering, a proof assistant or solver-backed tool when relevant to the implementation, or generated runtime cases when a formal model would lose the behavior being checked.",
+      "Map each model assumption, atomic action, or bounded input to live code. Record scope, bounds, version, and revision in a reusable command and its project-local skill.",
+      "Run the check against the protected input and a small, deliberately broken control. Keep the failing witness and clean result. Verify that the protected input remains intact and link the evidence.",
+      "Explain the bounded property in project terms, document what must trigger the check again, and hand off to qstack-maintain-formal-verification when implementation or assumptions change."
+    ]
+  },
+  {
+    "id": "qstack-review",
+    "category": "engineering",
+    "description": "Review a frozen implementation once and retain findings with a demonstrated trigger and impact.",
+    "manual": true,
+    "sources": [
+      {"path": "gstack/review/SKILL.md", "line": 471, "take": "Review production-impact risks on a fixed scope and apply the blocking floor."},
+      {"path": "pstack/pstack/skills/interrogate/SKILL.md", "line": 21, "take": "Verify each candidate finding with a reproduction and group findings by root cause."}
+    ]
+  },
+  {
+    "id": "qstack-verify",
+    "category": "verification",
+    "description": "Run selected project checks and prove behavior through its normal entry point on the exact input.",
+    "manual": true,
+    "sources": [
+      {"path": "gstack/verify/SKILL.md", "line": 179, "take": "Run the applicable checks, retain their logs, and tie readiness to the exact input."},
+      {"path": "pstack/pstack/skills/principle-prove-it-works/SKILL.md", "line": 15, "take": "Use the actual artifact and record a rerunnable observation."}
+    ]
+  },
+  {
+    "id": "qstack-autoplan",
+    "category": "planning",
+    "description": "Review a substantial plan through strategy, product design, developer experience, and engineering when applicable.",
+    "sources": [
+      {"path": "gstack/autoplan/SKILL.md", "line": 546, "take": "Review strategy first, activate design and DX lenses by scope, and run engineering last on the amended plan."}
+    ],
+    "steps": [
+      "Load the current plan and freeze a restorable copy. Record the user objective, scope, unresolved decisions, and known evidence in one decision log.",
+      "Apply the strategy or scope lens once. Apply design only to user-facing changes and developer experience only where developers have a changed path. Carry accepted edits forward after each pass.",
+      "Use qstack-plan for the final engineering review. If the user requests independent review and the host supports it, provide the frozen plan and the same decision rubric to an independent reviewer.",
+      "Accept the revised plan when the findings are resolved and selected checks apply to the final version. Keep product or externally consequential choices with the user when approval is required."
+    ]
+  },
+  {
+    "id": "qstack-benchmark",
+    "category": "verification",
+    "description": "Measure a browser or system performance change with a controlled baseline and an evidence-backed conclusion.",
+    "sources": [
+      {"path": "gstack/benchmark/SKILL.md", "line": 241, "mode": "Run or compare browser performance measurements within the requested scope.", "take": "Collect comparable browser timing, Web Vitals, and resource sizes across revisions."},
+      {"path": "pstack/pstack/skills/benchmark-checklist/SKILL.md", "line": 19, "mode": "Audit the existing benchmark evidence first. Request or run a matched comparison only when needed and authorized.", "take": "Check limiter, tuning, errors, completed work, repeatability, and relevance."},
+      {"path": "pstack/pstack/skills/principle-explain-the-number/SKILL.md", "line": 9, "mode": "Explain the reported measurement in terms of its decision, workload, and noise floor.", "take": "State the decision, target, and noise floor before interpreting a number."}
+    ],
+    "steps": [
+      "Write the decision the result could change, the smallest meaningful effect, and the user workload that matters. Select a baseline and candidate revision.",
+      "Use an identical fixture, settings, device profile, workload, and load generator for both revisions. Warm up consistently and repeat enough to see variance. For browser changes capture navigation timing, relevant Web Vitals, and resource weight.",
+      "Verify both sides did comparable work successfully. Check throttling, queues, dropped requests, CPU or memory limits, cache state, and the resource that set the observed ceiling.",
+      "Report raw values, units, sample count, dispersion, delta, environment, and the artifact or command that reproduces them. Mark the result inconclusive when variation is larger than the effect."
+    ]
+  },
+  {
+    "id": "qstack-model-benchmark",
+    "category": "verification",
+    "description": "Compare agent models or providers on the same skill prompt and score tangible outputs with an explicit rubric.",
+    "sources": [
+      {"path": "gstack/benchmark-models/SKILL.md", "line": 173, "take": "Select one prompt and eligible providers, control the judge policy, and retain output and usage evidence."}
+    ],
+    "steps": [
+      "Freeze the prompt, input fixture, model IDs, tool access, budgets, and scoring rubric. Use an independent judge when model identity could influence scores.",
+      "Use qstack-evaluation-plan before a paid run when the comparison needs preregistration or a controlled spend. Exercise the provider interface with a no-cost fixture first where available.",
+      "Run each authorized arm against the same input. Save outputs, model, runtime, tool errors, output scores, and actual usage or cost when available.",
+      "Compare task success and operating cost separately. Distinguish timeout, error, and missing data from quality scores. Keep single-sample rankings provisional."
+    ]
+  },
+  {
+    "id": "qstack-hacker-news",
+    "category": "browser",
+    "description": "Collect the current Hacker News front page as structured story records.",
+    "sources": [
+      {"path": "gstack/browser-skills/hackernews-frontpage/SKILL.md", "line": 16, "take": "Match headline rows to metadata and return story rank, title, URL, points, and comment count."}
+    ],
+    "steps": [
+      "Open the public Hacker News front page with an available browser or HTTP tool.",
+      "Pair each story row with its own metadata. Resolve relative story links against the origin and preserve the displayed rank and title.",
+      "Return up to 30 records with rank, title, URL, points, and comment count. Use an explicit missing value when the page omits metadata and check that ranks are unique."
+    ]
+  }
+]
